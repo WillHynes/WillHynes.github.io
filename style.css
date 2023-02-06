@@ -1,0 +1,8 @@
+:root {
+    --bg-color: rgb(29, 29, 29);
+}
+
+body {
+    background-color: var(--bg-color);
+    display: grid;
+}
