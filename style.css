@@ -17,6 +17,7 @@ body {
 main {
     display: grid;
     align-items: center;
+    margin-left: 3.5%;
 
     width: 100%;
 
@@ -39,15 +40,15 @@ main {
     align-self: center;
 
     position: absolute;
-    z-index: 2;
+    z-index: 10;
 }
 
 #scrollSpacer {
     position: absolute;
-    z-index: 3;
+    z-index: 20;
 
     background-color: rgba(0, 0, 0, 0);
 
-    width: 100%;
-    height: var(--spacer-amount);
+    width: 3%;
+    height: 300%;
 }
