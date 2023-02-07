@@ -1,6 +1,6 @@
 let root = document.documentElement;
 
-let spinQuant = Math.floor(screen.availHeight/180) * 180;
+let spinQuant = (Math.floor(screen.availHeight/180) * 180) * 2;
 console.log(spinQuant);
 
 root.style.setProperty('--spacer-amount', spinQuant + "px");
