@@ -1,24 +1,21 @@
-let root = document.documentElement;
+let screenheight = window.screen.availHeight;
+let totalheight = screenheight * 4;
+let spinamount = 180 / screenheight;
 
-let spinQuant = Math.floor(screen.availHeight/180) * 180;
-console.log(spinQuant);
+console.log(spinamount);
+console.log(screenheight);
 
-let scrollPercent = () => {
-    let pos = document.documentElement.scrollTop;
+document.documentElement.style.setProperty('--spacer-amount', totalheight + "px");
 
-    let calcheight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-    let scrollvalue = Math.round( pos * 100 / calcheight);
-
-    return scrollvalue
-}
-
-
-root.style.setProperty('--spacer-amount', spinQuant + "px");
 
 window.addEventListener('scroll', (event) => {
-    let scroll = Math.round(this.scrollY);
+    let scroll = this.scrollY;
+
+    console.clear();
+    console.log(scroll);
     
-    root.style.setProperty('--rotate-amount', scroll + "deg");
+    document.documentElement.style.setProperty('--rotate-amount', spinamount * scroll + "deg");
+
+    
 
 })
