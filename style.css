@@ -20,7 +20,10 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "header header"
+        "content content"
+        "content content";
 
     gap: 1.25rem;
 
@@ -32,25 +35,28 @@ main {
 }
 
 #welcomeBanner {
+    grid-area: "header"; 
+
     font-size: 3rem;
     font-family: Changa, sans-serif;
-
 
     z-index: 2;
 }
 
-#bannerBackground {
-    width: 25.5rem;
-    height: 5rem;
-    background-color: rgb(22, 22, 22);
-    left: 3.5rem;
-    top: 2.75rem;
+#weclcomeBanner p {
+    box-shadow: 0.2rem 0.2rem;
 }
 
-main p {
+#content {
+    grid-area: "content";
+
     font-size: 1.75rem;
     font-family: Changa, sans-serif;
+
     border: solid 0.2rem rgb(87, 87, 87);
-    padding: 0.5rem;
     box-shadow: 0.5rem 0.5rem;
+
+    padding: 0.5rem;
 }
+
+
