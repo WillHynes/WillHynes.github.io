@@ -1,5 +1,4 @@
 :root {
-    font-size: 16px;
     --bg-color: rgb(29, 29, 29);
     --text-color: rgb(94, 0, 156);
     --rotate-amount: 0deg;
@@ -18,80 +17,40 @@ body {
     display: none;
 }
 
+
 main {
     display: grid;
-    align-items: center;
-    margin-left: 3.5%;
+    grid-template-columns: 1fr 1fr;
 
-    width: 100%;
+    gap: 1.25rem;
+
+    margin-left: 3.5%;
+    margin-right: 3.5%;
 
     position: fixed;
-    z-index: 1;
+    z-index: 0;
 }
 
 #welcomeBanner {
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: Changa, sans-serif;
-}
 
-#spin-bar {
-    width: 50vw;
-    height: 1rem;
-    background-color: rgba(255, 0, 0, 0.199);
 
-    transform: rotate(var(--rotate-amount));
-
-    align-self: center;
-
-    position: absolute;
-    z-index: 10;
-}
-
-#scrollSpacer {
-    position: absolute;
-    z-index: 20;
-
-    background-color: rgba(0, 0, 0, 0);
-
-    width: 3%;
-    height: var(--spacer-amount);
-}
-
-#topblockerleftstage1 {
-    width: 50vw;
-    height: 50vh;
-
-    position: absolute;
     z-index: 2;
 }
 
-#topblockerrightstage1 {
-    width: 50vw;
-    height: 50vh;
-
-    margin-left: 50vw;
-
-    position: absolute;
-    z-index: 2;
+#bannerBackground {
+    width: 25.5rem;
+    height: 5rem;
+    background-color: rgb(22, 22, 22);
+    left: 3.5rem;
+    top: 2.75rem;
 }
 
-#bottomblockerleftstage1 {
-    width: 50vw;
-    height: 50vh;
-
-    margin-top: 50vh;
-
-    position: absolute;
-    z-index: 2;
-}
-
-#bottomblockerrightstage1 {
-    width: 50vw;
-    height: 50vh;
-
-    margin-top: 50vh;
-    margin-left: 50vw;
-
-    position: absolute;
-    z-index: 2;
+main p {
+    font-size: 1.75rem;
+    font-family: Changa, sans-serif;
+    border: solid 0.2rem rgb(87, 87, 87);
+    padding: 0.5rem;
+    box-shadow: 0.5rem 0.5rem;
 }
