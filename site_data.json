@@ -1,0 +1,418 @@
+{
+  "heroImages": [
+    "media/DSCF0326.jpg",
+    "media/DSCF0085.jpg",
+    "media/DSCF0434.jpg",
+    "media/DSCF0060.jpg",
+    "media/DSCF0037.jpg",
+    "media/DSCF0263.jpg",
+    "media/DSCF0016.jpg",
+    "media/DSC00798.jpg",
+    "media/DSCF0277.jpg",
+    "media/DSCF0204.jpg",
+    "media/DSCF0130.jpg",
+    "media/DSCF0369.jpg",
+    "media/DSCF0029.jpg",
+    "media/DSCF0392.jpg",
+    "media/DSCF0434 (1).jpg",
+    "media/DSCF0462.jpg",
+    "media/DSCF0354.jpg",
+    "media/_DSF0225.jpg",
+    "media/DSCF0264.jpg"
+  ],
+  "bands": [
+    {
+      "id": "dreamwave",
+      "name": "Dreamwave",
+      "meta": "Psychadelic",
+      "venue": "The Jam Factory",
+      "isWide": true,
+      "colorClass": "t-purple",
+      "photos": [
+        {
+          "src": "media/_DSF0189.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/_DSF0094.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/_DSF0199.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/_DSF0031.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/_DSF0225.jpg",
+          "orientation": "landscape"
+        }
+      ]
+    },
+    {
+      "id": "yungold",
+      "name": "Yungold",
+      "meta": "Gig Photography",
+      "venue": "The Jam Factory",
+      "colorClass": "t-amber",
+      "photos": [
+        {
+          "src": "media/DSCF0326.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0263.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0434.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0277.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0204.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0392.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0295.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0253.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0264.jpg",
+          "orientation": "landscape"
+        }
+      ],
+      "isWide": true
+    },
+    {
+      "id": "pollyanna-blue",
+      "name": "Pollyanna Blue",
+      "meta": "Grunge Alt Rock",
+      "venue": "The Jam Factory",
+      "colorClass": "t-blue",
+      "photos": [
+        {
+          "src": "media/DSCF0425.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0374.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0383.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0483.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "isWide": true
+    },
+    {
+      "id": "dead-on-arrival",
+      "name": "Dead On Arrival",
+      "meta": "Grunge Rock",
+      "venue": "Mixed",
+      "isWide": true,
+      "colorClass": "t-red",
+      "photos": [
+        {
+          "src": "media/DSC00833.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSC01015.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSC00875.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSC00798.jpg",
+          "orientation": "landscape"
+        },
+        {
+          "src": "media/DSCF0075.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0142.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0109.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0129.jpg",
+          "orientation": "portrait"
+        }
+      ]
+    },
+    {
+      "id": "humdrum",
+      "name": "Humdrum",
+      "meta": "Dream-pop",
+      "colorClass": "t-teal",
+      "photos": [
+        {
+          "src": "media/DSCF0025.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0061.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0124.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0088.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "venue": "The Jam Factory",
+      "isWide": true
+    },
+    {
+      "id": "lumora",
+      "name": "Lumora",
+      "meta": "Rock",
+      "colorClass": "t-green",
+      "photos": [
+        {
+          "src": "media/DSCF0251.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0181.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0194.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0091.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "venue": "",
+      "isWide": true
+    },
+    {
+      "id": "the-makings",
+      "name": "The Makings",
+      "meta": "Souladelic Rock Fusion",
+      "colorClass": "t-pink",
+      "photos": [
+        {
+          "src": "media/DSCF0462.jpg",
+          "orientation": "landscape"
+        },
+        {
+          "src": "media/DSCF0434 (1).jpg",
+          "orientation": "landscape"
+        },
+        {
+          "src": "media/DSCF0354.jpg",
+          "orientation": "landscape"
+        },
+        {
+          "src": "media/DSCF0390.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0416.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0384.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0289.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "venue": "The Jam Factory",
+      "isWide": true
+    },
+    {
+      "id": "since",
+      "name": "Since",
+      "meta": "Acoustic",
+      "colorClass": "t-coral",
+      "photos": [
+        {
+          "src": "media/DSCF0008.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0029.jpg",
+          "orientation": "landscape"
+        },
+        {
+          "src": "media/DSCF0050.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "venue": "The Jam Factory",
+      "isWide": true
+    },
+    {
+      "id": "versaints",
+      "name": "Versaints",
+      "meta": "Punk",
+      "colorClass": "t-navy",
+      "photos": [
+        {
+          "src": "media/DSCF0085.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0060.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0037.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0016.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0539.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0753.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0657.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "venue": "",
+      "isWide": true
+    },
+    {
+      "id": "the-longheads",
+      "name": "The Longheads",
+      "meta": "Gig Photography",
+      "venue": "",
+      "photos": [
+        {
+          "src": "media/DSCF0369.jpg",
+          "orientation": "landscape"
+        },
+        {
+          "src": "media/DSCF0294.jpg",
+          "orientation": "portrait"
+        },
+        {
+          "src": "media/DSCF0323.jpg",
+          "orientation": "portrait"
+        }
+      ],
+      "isWide": true
+    }
+  ],
+  "posters": [
+    {
+      "id": "poster-01",
+      "title": "Dreamwave",
+      "band": "Dreamwave",
+      "venue": "The Jam Factory",
+      "date": "Update with your date",
+      "format": "A2 Print / Digital",
+      "description": "[Update this with your own description of the Dreamwave poster — what inspired the design, the brief you were given, any interesting details about the typography or layout choices, and what made this gig special.]",
+      "tags": [
+        "Typography-led",
+        "Purple palette",
+        "Print-ready"
+      ],
+      "imagePath": null,
+      "colorConfig": {
+        "bg": "#1a1028",
+        "color": "#AFA9EC"
+      }
+    },
+    {
+      "id": "poster-02",
+      "title": "Yungold",
+      "band": "Yungold",
+      "venue": "The Jam Factory",
+      "date": "Update with your date",
+      "format": "A2 Print / Digital",
+      "description": "[Update this with your own description of the Yungold poster — what inspired the warm amber tones, the mood you were going for, and any details about how you captured the energy of the band in the design.]",
+      "tags": [
+        "Warm palette",
+        "Bold type",
+        "Print-ready"
+      ],
+      "imagePath": null,
+      "colorConfig": {
+        "bg": "#1a1408",
+        "color": "#EF9F27"
+      }
+    },
+    {
+      "id": "poster-03",
+      "title": "Pollyanna Blue",
+      "band": "Pollyanna Blue",
+      "venue": "The Jam Factory",
+      "date": "Update with your date",
+      "format": "A2 Print / Digital",
+      "description": "[Update this with your own description of the Pollyanna Blue poster — the cool blue palette, the mood of the night, the brief from the band or promoter, and anything else that makes this piece stand out in your portfolio.]",
+      "tags": [
+        "Cool palette",
+        "Minimalist",
+        "Print-ready"
+      ],
+      "imagePath": null,
+      "colorConfig": {
+        "bg": "#071220",
+        "color": "#85B7EB"
+      }
+    },
+    {
+      "id": "poster-04",
+      "title": "Dead On Arrival",
+      "band": "Dead On Arrival",
+      "venue": "The Jam Factory",
+      "date": "Update with your date",
+      "format": "A2 Print / Digital",
+      "description": "[Update this with your own description of the Dead On Arrival poster — the raw red palette, what the brief was, how you captured the intensity of the band's sound in the visual design, and anything that made this commission memorable.]",
+      "tags": [
+        "High contrast",
+        "Raw energy",
+        "Print-ready"
+      ],
+      "imagePath": null,
+      "colorConfig": {
+        "bg": "#1a0a0a",
+        "color": "#F09595"
+      }
+    }
+  ]
+}

@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script src="js/main.js"></script>
+<script src="js/lightbox.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -62,7 +64,6 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--off-white); }
-
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
@@ -76,21 +77,40 @@
     border-bottom: 0.5px solid rgba(255,255,255,0.08);
   }
 
+  /* ── HERO SLIDESHOW ── */
   .hero-bg {
+    position: absolute; inset: 0;
+    overflow: hidden;
+  }
+  .hero-slide {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+  .hero-slide.active { opacity: 1; }
+  /* dark overlay so text stays readable */
+  .hero-slide::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to top, rgba(14,14,14,0.85) 0%, rgba(14,14,14,0.4) 50%, rgba(14,14,14,0.55) 100%),
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(127,119,221,0.12) 0%, transparent 70%);
+  }
+  /* grain */
+  .hero-grain {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.35;
+  }
+  /* fallback if no images found */
+  .hero-bg-fallback {
     position: absolute; inset: 0;
     background:
       radial-gradient(ellipse 60% 50% at 70% 40%, rgba(127,119,221,0.18) 0%, transparent 70%),
       radial-gradient(ellipse 40% 60% at 20% 80%, rgba(216,90,48,0.12) 0%, transparent 60%),
       var(--off-black);
-  }
-
-  /* Grain overlay */
-  .hero-bg::after {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.4;
-    pointer-events: none;
   }
 
   .hero-content { position: relative; z-index: 2; }
@@ -439,7 +459,7 @@
   <a href="#" class="nav-logo">Will Hynes <span>Photography</span></a>
   <div class="nav-links">
     <a href="#photography">Gigs</a>
-    <a href="#posters">Posters</a>
+    <a href="will_hynes_posters.html">Posters</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
@@ -447,7 +467,11 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <div class="hero-bg-fallback"></div>
+    <!-- slides injected by JS from media/ folder -->
+    <div class="hero-grain"></div>
+  </div>
   <div class="hero-content">
     <div class="hero-tag">Gig photography & poster design</div>
     <h1>
@@ -457,7 +481,7 @@
     </h1>
     <div class="hero-bottom">
       <p class="hero-desc">
-        Capturing the <strong>energy, sweat, and chaos</strong> of live music — from the stage to the mosh pit. Based in Herefordshire, shooting stages across the UK.
+        Capturing the <strong>energy, chaos, and magic</strong> of live music — from the pit to the rafters. Based in Herefordshire, shooting stages across the UK.
       </p>
       <div class="hero-stats">
         <div>
@@ -517,57 +541,8 @@
       <a href="will_hynes_gallery.html" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--coral-light); text-decoration:none; border-bottom: 0.5px solid var(--coral-light); padding-bottom:1px;">View all photos →</a>
     </div>
   </div>
-  <div class="photo-grid">
-    <div class="photo-item featured tint-b">
-      <div class="photo-fill tall">
-        <svg class="photo-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg>
-        <span>your photo here</span>
-      </div>
-      <div class="photo-overlay">
-        <div class="photo-overlay-title">Dreamwave</div>
-        <div class="photo-overlay-sub">The Jam Factory</div>
-      </div>
-    </div>
-    <div class="photo-item tint-a">
-      <div class="photo-fill">
-        <svg class="photo-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg>
-        <span>your photo here</span>
-      </div>
-      <div class="photo-overlay">
-        <div class="photo-overlay-title">Pollyanna Blue</div>
-        <div class="photo-overlay-sub">The Jam Factory</div>
-      </div>
-    </div>
-    <div class="photo-item tint-c">
-      <div class="photo-fill">
-        <svg class="photo-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg>
-        <span>your photo here</span>
-      </div>
-      <div class="photo-overlay">
-        <div class="photo-overlay-title">Yungold</div>
-        <div class="photo-overlay-sub">The Herdsman</div>
-      </div>
-    </div>
-    <div class="photo-item tint-d">
-      <div class="photo-fill">
-        <svg class="photo-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg>
-        <span>your photo here</span>
-      </div>
-      <div class="photo-overlay">
-        <div class="photo-overlay-title">Dead On Arrival</div>
-        <div class="photo-overlay-sub">The Herdsman</div>
-      </div>
-    </div>
-    <div class="photo-item tint-e">
-      <div class="photo-fill">
-        <svg class="photo-icon" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg>
-        <span>your photo here</span>
-      </div>
-      <div class="photo-overlay">
-        <div class="photo-overlay-title">Dead On Arrival</div>
-        <div class="photo-overlay-sub">The Jam Factory</div>
-      </div>
-    </div>
+  <div id="featured-photo-grid" class="photo-grid">
+    <!-- Dynamically populated -->
   </div>
 </section>
 
@@ -575,69 +550,13 @@
 <section id="posters" class="fade-up">
   <div class="section-header">
     <div class="section-title"><span class="purple">02</span> Poster design</div>
-    <div class="section-index">Print-ready gig artwork</div>
+    <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+      <div class="section-index">Print-ready gig artwork</div>
+      <a href="will_hynes_posters.html" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--purple); text-decoration:none; border-bottom: 0.5px solid var(--purple); padding-bottom:1px;">View all posters →</a>
+    </div>
   </div>
-  <div class="poster-grid">
-    <!-- Dreamwave poster -->
-    <div class="poster-item">
-      <div class="poster-fill" style="background: #1a1028; color: #AFA9EC;">
-        <div class="poster-lines">
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div>
-        </div>
-        <div class="poster-inner">
-          <div class="poster-band">DREAM<br>WAVE</div>
-          <div class="poster-venue">The Jam Factory</div>
-          <div class="poster-date">Add your date</div>
-        </div>
-      </div>
-    </div>
-    <!-- Yungold poster -->
-    <div class="poster-item">
-      <div class="poster-fill" style="background: #1a1408; color: #EF9F27;">
-        <div class="poster-lines">
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div>
-        </div>
-        <div class="poster-inner">
-          <div class="poster-band">YUN<br>GOLD</div>
-          <div class="poster-venue">The Jam Factory</div>
-          <div class="poster-date">Add your date</div>
-        </div>
-      </div>
-    </div>
-    <!-- Pollyanna Blue poster -->
-    <div class="poster-item">
-      <div class="poster-fill" style="background: #071220; color: #85B7EB;">
-        <div class="poster-lines">
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div>
-        </div>
-        <div class="poster-inner">
-          <div class="poster-band">POLLY<br>ANNA<br>BLUE</div>
-          <div class="poster-venue">The Jam Factory</div>
-          <div class="poster-date">Add your date</div>
-        </div>
-      </div>
-    </div>
-    <!-- Dead On Arrival poster -->
-    <div class="poster-item">
-      <div class="poster-fill" style="background: #1a0a0a; color: #F09595;">
-        <div class="poster-lines">
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
-          <div class="h-line"></div><div class="h-line"></div>
-        </div>
-        <div class="poster-inner">
-          <div class="poster-band">DEAD<br>ON<br>ARRIVAL</div>
-          <div class="poster-venue">The Jam Factory</div>
-          <div class="poster-date">Add your date</div>
-        </div>
-      </div>
-    </div>
+  <div id="featured-poster-grid" class="poster-grid">
+    <!-- Dynamically populated -->
   </div>
 </section>
 
@@ -653,7 +572,7 @@
         I'm a photographer and graphic designer based in Herefordshire, specialising in <strong>live music photography</strong> and <strong>gig poster design</strong>.
       </p>
       <p>
-        Most nights you'll find me in the pit at <strong>The Jam Factory</strong> or <strong>The Herdsman</strong> — shooting bands like Dreamwave, Yungold, Pollyanna Blue, and Dead On Arrival. I love the energy of live music, and I aim to capture that in my work.
+        Most nights you'll find me in the pit at <strong>The Jam Factory</strong> or <strong>The Herdsman</strong> — shooting bands like Dreamwave, Yungold, Pollyanna Blue, and Dead On Arrival. I work fast, I work quiet, and I don't miss the moment.
       </p>
       <p>
         On the design side, I make bold, print-ready posters for bands and promoters. Every poster is built around the music — not a template.
@@ -689,15 +608,120 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  async function initHome() {
+    const data = await portfolio.fetchSiteData();
+
+    // ── FADE-IN OBSERVER ──
+    portfolio.initFadeObserver();
+
+    // ── HERO SLIDESHOW ──
+    const heroImages = data ? data.heroImages : [];
+    const heroBg = document.querySelector(".hero-bg");
+    const grain = heroBg.querySelector(".hero-grain");
+    let slides = [];
+    let currentSlide = 0;
+    let slideshowTimer = null;
+
+    function buildSlideshow(images) {
+      heroBg.querySelectorAll(".hero-slide").forEach((s) => s.remove());
+      slides = [];
+      if (!images.length) return;
+      const shuffled = [...images].sort(() => Math.random() - 0.5);
+      shuffled.forEach((src, i) => {
+        const div = document.createElement("div");
+        div.className = "hero-slide" + (i === 0 ? " active" : "");
+        div.style.backgroundImage = `url('${src}')`;
+        heroBg.insertBefore(div, grain);
+        slides.push(div);
+      });
+      currentSlide = 0;
+      if (slideshowTimer) clearInterval(slideshowTimer);
+      if (slides.length > 1) slideshowTimer = setInterval(nextSlide, 5000);
+    }
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }
+
+    function filterLoadableImages(paths) {
+      return Promise.all(
+        paths.map(
+          (p) =>
+            new Promise((res) => {
+              const img = new Image();
+              img.onload = () => res(p);
+              img.onerror = () => res(null);
+              img.src = p;
+            }),
+        ),
+      ).then((results) => results.filter(Boolean));
+    }
+
+    if (heroImages.length) {
+      filterLoadableImages(heroImages).then((loaded) => buildSlideshow(loaded));
+    }
+
+    // ── DYNAMIC FEATURED GRIDS ──
+    if (data) {
+      // 1. Featured Photography (Random selection of 5 photos from across all bands)
+      const photoGrid = document.getElementById("featured-photo-grid");
+      const allPhotos = data.bands.flatMap(b => b.photos.filter(p => p.src).map(p => ({ ...p, band: b.name, venue: b.venue })));
+      
+      // Shuffle and take 5
+      const featuredPhotos = allPhotos.sort(() => 0.5 - Math.random()).slice(0, 5);
+      
+      photoGrid.innerHTML = featuredPhotos.map((p, idx) => `
+        <div class="photo-item ${idx === 0 ? 'featured' : ''}" onclick="openFeaturedLightbox(${idx})">
+          <div class="photo-fill ${p.orientation === 'portrait' ? 'tall' : ''}">
+            <img src="${p.src}" alt="${p.band} live" style="width:100%; height:100%; object-fit:contain; background:#111; display:block;">
+          </div>
+          <div class="photo-overlay">
+            <div class="photo-overlay-title">${p.band}</div>
+            <div class="photo-overlay-sub">${p.venue || 'Live'}</div>
+          </div>
+        </div>
+      `).join('');
+
+      window.openFeaturedLightbox = (idx) => {
+        const group = featuredPhotos.map(p => ({ src: p.src, title: `${p.band} · ${p.venue || 'Live'}` }));
+        Lightbox.show(idx, group);
+      };
+
+      // 2. Featured Posters (Grab first 4)
+      const posterGrid = document.getElementById("featured-poster-grid");
+      const featuredPosters = data.posters.slice(0, 4);
+
+      posterGrid.innerHTML = featuredPosters.map((p, idx) => `
+        <div class="poster-item" onclick="openPosterLightbox(${idx})">
+          <div class="poster-fill" style="background: ${p.colorConfig?.bg || '#141414'}; color: ${p.colorConfig?.color || '#888'};">
+            ${p.imagePath ? `<img src="${p.imagePath}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover; display:block;">` : `
+              <div class="poster-lines">
+                <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+                <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+                <div class="h-line"></div><div class="h-line"></div>
+              </div>
+              <div class="poster-inner">
+                <div class="poster-band">${p.band.replace(' ', '<br>')}</div>
+                <div class="poster-venue">${p.venue}</div>
+                <div class="poster-date">${p.date}</div>
+              </div>
+            `}
+          </div>
+        </div>
+      `).join('');
+
+      window.openPosterLightbox = (idx) => {
+        const group = featuredPosters.filter(p => p.imagePath).map(p => ({ src: p.imagePath, title: `${p.title} · ${p.venue}` }));
+        const clickedPoster = featuredPosters[idx];
+        const actualIdx = group.findIndex(img => img.src === clickedPoster.imagePath);
+        if (actualIdx !== -1) Lightbox.show(actualIdx, group);
+      };
+    }
+  }
+
+  initHome();
 </script>
 </body>
 </html>

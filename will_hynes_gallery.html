@@ -1,395 +1,437 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gig Photography — Will Hynes</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gig Photography — Will Hynes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/main.js"></script>
+    <script src="js/lightbox.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  :root {
-    --coral: #D85A30;
-    --coral-light: #F0997B;
-    --purple: #7F77DD;
-    --off-black: #0e0e0e;
-    --off-white: #F5F2ED;
-    --mid: #888780;
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-  }
+      :root {
+        --coral: #d85a30;
+        --coral-light: #f0997b;
+        --purple: #7f77dd;
+        --off-black: #0e0e0e;
+        --off-white: #f5f2ed;
+        --mid: #888780;
+        --font-display: "Bebas Neue", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+      }
 
-  html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-  body {
-    background: var(--off-black);
-    color: var(--off-white);
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+      body {
+        background: var(--off-black);
+        color: var(--off-white);
+        font-family: var(--font-body);
+        font-weight: 300;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 2.5rem;
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    background: rgba(14,14,14,0.9);
-    backdrop-filter: blur(12px);
-  }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 22px;
-    letter-spacing: 0.04em;
-    color: var(--off-white);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--coral); }
-  .nav-back {
-    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--mid); text-decoration: none;
-    display: flex; align-items: center; gap: 6px;
-    transition: color 0.2s;
-  }
-  .nav-back:hover { color: var(--off-white); }
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 2.5rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+        background: rgba(14, 14, 14, 0.9);
+        backdrop-filter: blur(12px);
+      }
+      .nav-logo {
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        color: var(--off-white);
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--coral);
+      }
+      .nav-back {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mid);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.2s;
+      }
+      .nav-back:hover {
+        color: var(--off-white);
+      }
 
-  /* ── PAGE HEADER ── */
-  .page-header {
-    padding: 7rem 2.5rem 3rem;
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    display: flex; align-items: flex-end; justify-content: space-between;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .page-header h1 {
-    font-family: var(--font-display);
-    font-size: clamp(42px, 7vw, 80px);
-    letter-spacing: 0.03em;
-    line-height: 1;
-  }
-  .page-header h1 span { color: var(--coral); }
-  .page-header p {
-    font-size: 14px; color: var(--mid);
-    max-width: 300px; text-align: right; line-height: 1.6;
-  }
+      /* ── PAGE HEADER ── */
+      .page-header {
+        padding: 7rem 2.5rem 3rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .page-header h1 {
+        font-family: var(--font-display);
+        font-size: clamp(42px, 7vw, 80px);
+        letter-spacing: 0.03em;
+        line-height: 1;
+      }
+      .page-header h1 span {
+        color: var(--coral);
+      }
+      .page-header p {
+        font-size: 14px;
+        color: var(--mid);
+        max-width: 300px;
+        text-align: right;
+        line-height: 1.6;
+      }
 
-  /* ── FILTER BAR ── */
-  .filter-bar {
-    padding: 1.25rem 2.5rem;
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
-    position: sticky; top: 64px; z-index: 50;
-    background: rgba(14,14,14,0.95);
-    backdrop-filter: blur(8px);
-  }
-  .filter-label {
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--mid); margin-right: 4px;
-  }
-  .filter-btn {
-    font-family: var(--font-body);
-    font-size: 12px; letter-spacing: 0.04em;
-    padding: 5px 14px;
-    background: transparent;
-    border: 0.5px solid rgba(255,255,255,0.12);
-    border-radius: 999px;
-    color: var(--mid);
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s, background 0.15s;
-    white-space: nowrap;
-  }
-  .filter-btn:hover { border-color: rgba(255,255,255,0.3); color: var(--off-white); }
-  .filter-btn.active {
-    background: var(--coral);
-    border-color: var(--coral);
-    color: #fff;
-  }
+      /* ── FILTER BAR ── */
+      .filter-bar {
+        padding: 1.25rem 2.5rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+        position: sticky;
+        top: 64px;
+        z-index: 50;
+        background: rgba(14, 14, 14, 0.95);
+        backdrop-filter: blur(8px);
+      }
+      .filter-label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mid);
+        margin-right: 4px;
+      }
+      .filter-btn {
+        font-family: var(--font-body);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        padding: 5px 14px;
+        background: transparent;
+        border: 0.5px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        color: var(--mid);
+        cursor: pointer;
+        transition:
+          border-color 0.15s,
+          color 0.15s,
+          background 0.15s;
+        white-space: nowrap;
+      }
+      .filter-btn:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--off-white);
+      }
+      .filter-btn.active {
+        background: var(--coral);
+        border-color: var(--coral);
+        color: #fff;
+      }
 
-  /* ── BAND SECTIONS ── */
-  .band-section {
-    padding: 3.5rem 2.5rem;
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-  }
-  .band-header {
-    display: flex; align-items: baseline; justify-content: space-between;
-    margin-bottom: 1.75rem; flex-wrap: wrap; gap: 0.5rem;
-  }
-  .band-name {
-    font-family: var(--font-display);
-    font-size: 36px;
-    letter-spacing: 0.04em;
-    line-height: 1;
-  }
-  .band-meta {
-    font-size: 12px; color: var(--mid);
-    letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .band-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 6px;
-  }
-  .band-grid.wide {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
+      /* ── BAND SECTIONS ── */
+      .band-section {
+        padding: 2rem 1.5rem; /* Reduced padding */
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+      }
+      .band-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 1rem; /* Tighter spacing */
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .band-name {
+        font-family: var(--font-display);
+        font-size: 32px;
+        letter-spacing: 0.04em;
+        line-height: 1;
+      }
+      .band-meta {
+        font-size: 11px;
+        color: var(--mid);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .band-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px; /* Tighter gap */
+        max-width: 1600px;
+      }
+      .band-grid::after {
+        content: "";
+        flex-grow: 99999;
+      }
+      
+      /* photo slot */
+      .photo-slot {
+        height: 380px; /* Slightly taller base */
+        position: relative;
+        cursor: pointer;
+        border-radius: 4px;
+        overflow: hidden;
+        flex: 1 1 auto;
+      }
+      /* Portrait 2:3 ratio */
+      .photo-slot.portrait {
+        flex-basis: 253px; 
+      }
+      /* Landscape 3:2 ratio */
+      .photo-slot.landscape {
+        flex-basis: 570px;
+      }
 
-  /* photo slot */
-  .photo-slot {
-    background: #1a1a1a;
-    border-radius: 3px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-  .photo-slot-inner {
-    aspect-ratio: 3/2;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px;
-  }
-  .photo-slot-inner svg { opacity: 0.2; }
-  .photo-slot-inner span {
-    font-size: 11px; color: rgba(255,255,255,0.2);
-    letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .photo-hover {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(14,14,14,0.75) 0%, transparent 55%);
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 0.75rem;
-    opacity: 0; transition: opacity 0.2s;
-  }
-  .photo-slot:hover .photo-hover { opacity: 1; }
-  .photo-hover-title { font-size: 13px; font-weight: 500; }
-  .photo-hover-sub { font-size: 11px; color: var(--mid); }
+      .photo-slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; 
+        background: #0a0a0a; 
+        display: block;
+      }
 
-  /* tint variants */
-  .t-purple { background: #1a1028; }
-  .t-amber  { background: #1a1408; }
-  .t-blue   { background: #071220; }
-  .t-red    { background: #1a0a0a; }
-  .t-teal   { background: #04161a; }
-  .t-gray   { background: #141414; }
-  .t-green  { background: #0a1408; }
-  .t-pink   { background: #1a0a14; }
-  .t-coral  { background: #1a0e08; }
-  .t-navy   { background: #080c1a; }
+      .band-grid.wide .photo-slot {
+        height: 500px;
+      }
+      .band-grid.wide .photo-slot.portrait {
+        flex-basis: 333px;
+      }
+      .band-grid.wide .photo-slot.landscape {
+        flex-basis: 750px;
+      }
 
-  /* ── FOOTER ── */
-  footer {
-    padding: 1.5rem 2.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    font-size: 12px; color: rgba(255,255,255,0.18);
-    letter-spacing: 0.05em; flex-wrap: wrap; gap: 0.5rem;
-  }
+      /* Responsive adjustments */
+      @media (max-width: 1100px) {
+        .photo-slot { height: 300px; }
+        .photo-slot.portrait { flex-basis: 200px; }
+        .photo-slot.landscape { flex-basis: 450px; }
+        .band-grid.wide .photo-slot { height: 380px; }
+        .band-grid.wide .photo-slot.portrait { flex-basis: 253px; }
+        .band-grid.wide .photo-slot.landscape { flex-basis: 570px; }
+      }
 
-  /* ── FADE IN ── */
-  .fade-up {
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+      @media (max-width: 650px) {
+        .band-grid::after { display: none; } /* Allow photos to fill the full width on mobile */
+        .band-section { padding: 1.5rem 1rem; }
+        .photo-slot, .band-grid.wide .photo-slot { height: 320px; } /* Larger height on mobile */
+        .photo-slot.portrait { flex-basis: 213px; }
+        .photo-slot.landscape { flex-basis: 480px; }
+      }
 
-  @media (max-width: 600px) {
-    .page-header { padding: 6rem 1.25rem 2rem; }
-    .filter-bar { padding: 1rem 1.25rem; }
-    .band-section { padding: 2.5rem 1.25rem; }
-    nav { padding: 1rem 1.25rem; }
-    footer { padding: 1.25rem; }
-  }
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="index.html" class="nav-logo">Will Hynes <span>Photography</span></a>
-  <a href="index.html" class="nav-back">← Back to portfolio</a>
-</nav>
-
-<div class="page-header">
-  <h1>Gig<br><span>Photography</span></h1>
-  <p>All bands, all venues. Drop in your photos by replacing the placeholder slots.</p>
-</div>
-
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <span class="filter-label">Filter</span>
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="dreamwave">Dreamwave</button>
-  <button class="filter-btn" data-filter="yungold">Yungold</button>
-  <button class="filter-btn" data-filter="pollyanna-blue">Pollyanna Blue</button>
-  <button class="filter-btn" data-filter="dead-on-arrival">Dead On Arrival</button>
-  <button class="filter-btn" data-filter="humdrum">Humdrum</button>
-  <button class="filter-btn" data-filter="gray-space">Gray Space</button>
-  <button class="filter-btn" data-filter="lumora">Lumora</button>
-  <button class="filter-btn" data-filter="the-makings">The Makings</button>
-  <button class="filter-btn" data-filter="since">Since</button>
-  <button class="filter-btn" data-filter="versaints">Versaints</button>
-</div>
-
-<!-- DREAMWAVE -->
-<div class="band-section fade-up" data-band="dreamwave">
-  <div class="band-header">
-    <div class="band-name">Dreamwave</div>
-    <div class="band-meta">The Jam Factory</div>
-  </div>
-  <div class="band-grid wide">
-    <div class="photo-slot t-purple"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Dreamwave</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-    <div class="photo-slot t-purple"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Dreamwave</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-    <div class="photo-slot t-purple"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Dreamwave</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-    <div class="photo-slot t-purple"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Dreamwave</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-  </div>
-</div>
-
-<!-- YUNGOLD -->
-<div class="band-section fade-up" data-band="yungold">
-  <div class="band-header">
-    <div class="band-name">Yungold</div>
-    <div class="band-meta">The Herdsman</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-amber"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Yungold</div><div class="photo-hover-sub">The Herdsman</div></div></div>
-    <div class="photo-slot t-amber"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Yungold</div><div class="photo-hover-sub">The Herdsman</div></div></div>
-    <div class="photo-slot t-amber"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Yungold</div><div class="photo-hover-sub">The Herdsman</div></div></div>
-  </div>
-</div>
-
-<!-- POLLYANNA BLUE -->
-<div class="band-section fade-up" data-band="pollyanna-blue">
-  <div class="band-header">
-    <div class="band-name">Pollyanna Blue</div>
-    <div class="band-meta">The Jam Factory</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-blue"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Pollyanna Blue</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-    <div class="photo-slot t-blue"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Pollyanna Blue</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-    <div class="photo-slot t-blue"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Pollyanna Blue</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-    <div class="photo-slot t-blue"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Pollyanna Blue</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-  </div>
-</div>
-
-<!-- DEAD ON ARRIVAL -->
-<div class="band-section fade-up" data-band="dead-on-arrival">
-  <div class="band-header">
-    <div class="band-name">Dead On Arrival</div>
-    <div class="band-meta">The Jam Factory · The Herdsman</div>
-  </div>
-  <div class="band-grid wide">
-    <div class="photo-slot t-red"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Dead On Arrival</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-    <div class="photo-slot t-red"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Dead On Arrival</div><div class="photo-hover-sub">The Herdsman</div></div></div>
-    <div class="photo-slot t-red"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Dead On Arrival</div><div class="photo-hover-sub">The Jam Factory</div></div></div>
-  </div>
-</div>
-
-<!-- HUMDRUM -->
-<div class="band-section fade-up" data-band="humdrum">
-  <div class="band-header">
-    <div class="band-name">Humdrum</div>
-    <div class="band-meta">Add venue</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-teal"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Humdrum</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-teal"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Humdrum</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-teal"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Humdrum</div><div class="photo-hover-sub">Live</div></div></div>
-  </div>
-</div>
-
-<!-- GRAY SPACE -->
-<div class="band-section fade-up" data-band="gray-space">
-  <div class="band-header">
-    <div class="band-name">Gray Space</div>
-    <div class="band-meta">Add venue</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-gray"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Gray Space</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-gray"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Gray Space</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-gray"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Gray Space</div><div class="photo-hover-sub">Live</div></div></div>
-  </div>
-</div>
-
-<!-- LUMORA -->
-<div class="band-section fade-up" data-band="lumora">
-  <div class="band-header">
-    <div class="band-name">Lumora</div>
-    <div class="band-meta">Add venue</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-green"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Lumora</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-green"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Lumora</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-green"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Lumora</div><div class="photo-hover-sub">Live</div></div></div>
-  </div>
-</div>
-
-<!-- THE MAKINGS -->
-<div class="band-section fade-up" data-band="the-makings">
-  <div class="band-header">
-    <div class="band-name">The Makings</div>
-    <div class="band-meta">Add venue</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-pink"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">The Makings</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-pink"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">The Makings</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-pink"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">The Makings</div><div class="photo-hover-sub">Live</div></div></div>
-  </div>
-</div>
-
-<!-- SINCE -->
-<div class="band-section fade-up" data-band="since">
-  <div class="band-header">
-    <div class="band-name">Since</div>
-    <div class="band-meta">Add venue</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-coral"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Since</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-coral"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Since</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-coral"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Since</div><div class="photo-hover-sub">Live</div></div></div>
-  </div>
-</div>
-
-<!-- VERSAINTS -->
-<div class="band-section fade-up" data-band="versaints">
-  <div class="band-header">
-    <div class="band-name">Versaints</div>
-    <div class="band-meta">Add venue</div>
-  </div>
-  <div class="band-grid">
-    <div class="photo-slot t-navy"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Versaints</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-navy"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Versaints</div><div class="photo-hover-sub">Live</div></div></div>
-    <div class="photo-slot t-navy"><div class="photo-slot-inner"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2"/><path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none"/></svg><span>your photo</span></div><div class="photo-hover"><div class="photo-hover-title">Versaints</div><div class="photo-hover-sub">Live</div></div></div>
-  </div>
-</div>
-
-<footer>
-  <span>© 2026 Will Hynes Photography</span>
-  <a href="index.html" style="color:rgba(255,255,255,0.18); text-decoration:none;">← Back to portfolio</a>
-</footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  const btns = document.querySelectorAll('.filter-btn');
-  const sections = document.querySelectorAll('.band-section');
-
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      sections.forEach(s => {
-        if (filter === 'all' || s.dataset.band === filter) {
-          s.style.display = '';
-        } else {
-          s.style.display = 'none';
+      @media (max-width: 480px) {
+        /* Single column stack for small phones */
+        .photo-slot, .band-grid.wide .photo-slot { 
+          height: auto; 
+          flex-basis: 100%;
         }
-      });
-    });
-  });
-</script>
-</body>
-</html>
+        .photo-slot.portrait { aspect-ratio: 2/3; }
+        .photo-slot.landscape { aspect-ratio: 3/2; }
+      }
+
+      @media (max-width: 600px) {
+        .page-header {
+          padding: 6rem 1.25rem 2rem;
+        }
+        .filter-bar {
+          padding: 1rem 1.25rem;
+          top: 60px;
+        }
+        nav {
+          padding: 1rem 1.25rem;
+        }
+        footer {
+          padding: 1.25rem;
+        }
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        padding: 1.5rem 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.18);
+        letter-spacing: 0.05em;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      /* ── FADE IN ── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="nav-logo"
+        >Will Hynes <span>Photography</span></a
+      >
+      <a href="index.html" class="nav-back">← Back to portfolio</a>
+    </nav>
+
+    <div class="page-header">
+      <h1>Gig<br /><span>Photography</span></h1>
+      <p>
+        All bands, all venues.
+      </p>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar" id="filter-bar">
+      <!-- Dynamically populated -->
+    </div>
+
+    <div id="gallery-content"></div>
+
+    <footer>
+      <span>© 2026 Will Hynes Photography</span>
+      <a
+        href="index.html"
+        style="color: rgba(255, 255, 255, 0.18); text-decoration: none"
+        >← Back to portfolio</a
+      >
+    </footer>
+
+    <script>
+      async function initGallery() {
+        const data = await portfolio.fetchSiteData();
+        if (!data) return;
+
+        const container = document.getElementById("gallery-content");
+        const filterBar = document.getElementById("filter-bar");
+
+        // 1. Build Filter Bar
+        let filterHtml = `<span class="filter-label">Filter</span>`;
+        filterHtml += `<button class="filter-btn active" data-filter="all">All</button>`;
+        data.bands.forEach(band => {
+          filterHtml += `<button class="filter-btn" data-filter="${band.id}">${band.name}</button>`;
+        });
+        filterBar.innerHTML = filterHtml;
+
+        // 2. Build band sections
+        data.bands.forEach((band) => {
+          const section = document.createElement("div");
+          section.className = "band-section fade-up";
+          section.dataset.band = band.id;
+
+          section.innerHTML = `
+            <div class="band-header">
+              <div class="band-name">${band.name}</div>
+              <div class="band-meta">${band.meta}</div>
+            </div>
+            <div class="band-grid ${band.isWide ? "wide" : ""}">
+              ${band.photos
+                .map(
+                  (photo, index) => `
+                <div class="photo-slot ${photo.orientation} ${
+                  band.colorClass || ""
+                }" onclick="openBandLightbox('${band.id}', ${index})">
+                  ${
+                    photo.src
+                      ? `<img src="${photo.src}" alt="${band.name} live">`
+                      : `
+                    <div class="photo-slot-inner">
+                      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="6" stroke="white" stroke-width="1.2" />
+                        <path d="M12 4h8l2 3h4a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h4l2-3z" stroke="white" stroke-width="1.2" fill="none" />
+                      </svg>
+                      <span>your photo</span>
+                    </div>
+                  `
+                  }
+                  <div class="photo-hover">
+                    <div class="photo-hover-title">${band.name}</div>
+                    <div class="photo-hover-sub">${band.venue || "Live"}</div>
+                  </div>
+                </div>
+              `,
+                )
+                .join("")}
+            </div>
+          `;
+          container.appendChild(section);
+        });
+
+        // Global function for lightbox triggers
+        window.openBandLightbox = (bandId, photoIndex) => {
+          const band = data.bands.find((b) => b.id === bandId);
+          if (!band) return;
+          const group = band.photos
+            .filter((p) => p.src)
+            .map((p) => ({
+              src: p.src,
+              title: `${band.name} · ${band.venue || "Live"}`,
+            }));
+          const clickedPhoto = band.photos[photoIndex];
+          if (!clickedPhoto || !clickedPhoto.src) return;
+
+          const actualIndex = group.findIndex((p) => p.src === clickedPhoto.src);
+          if (actualIndex !== -1) Lightbox.show(actualIndex, group);
+        };
+
+        // Re-init fade observer
+        portfolio.initFadeObserver();
+
+        // Re-init filtering logic for dynamic buttons
+        const btns = filterBar.querySelectorAll(".filter-btn");
+        const sections = document.querySelectorAll(".band-section");
+
+        btns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            btns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const filter = btn.dataset.filter;
+            sections.forEach((s) => {
+              if (filter === "all" || s.dataset.band === filter) {
+                s.style.display = "";
+              } else {
+                s.style.display = "none";
+              }
+            });
+          });
+        });
+      }
+
+      initGallery();
+    </script>

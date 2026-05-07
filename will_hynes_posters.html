@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster Design — Will Hynes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script src="js/main.js"></script>
+<script src="js/lightbox.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --coral: #D85A30;
+    --coral-light: #F0997B;
+    --purple: #7F77DD;
+    --off-black: #0e0e0e;
+    --off-white: #F5F2ED;
+    --mid: #888780;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--off-black);
+    color: var(--off-white);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    background: rgba(14,14,14,0.9);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px; letter-spacing: 0.04em;
+    color: var(--off-white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--coral); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 13px; color: var(--mid); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--off-white); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 7rem 2.5rem 3rem;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    display: flex; align-items: flex-end; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 7vw, 80px);
+    letter-spacing: 0.03em; line-height: 1;
+  }
+  .page-header h1 span { color: var(--purple); }
+  .page-header p { font-size: 14px; color: var(--mid); max-width: 300px; text-align: right; line-height: 1.6; }
+
+  /* ── POSTER GRID ── */
+  .posters-container { padding: 0 2.5rem 4rem; }
+  .posters-grid {
+    column-width: 340px;
+    column-gap: 2.5rem;
+    padding: 3rem 0;
+  }
+
+  .poster-item {
+    break-inside: avoid;
+    margin-bottom: 2.5rem;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .poster-item:hover { transform: translateY(-8px); }
+
+  .poster-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    background: var(--off-black);
+  }
+  .poster-visual {
+    aspect-ratio: 2/3;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .poster-lines-bg {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: space-between; padding: 14px;
+    opacity: 0.07;
+  }
+  .h-line { height: 0.5px; background: currentColor; }
+  .poster-text-inner {
+    text-align: center; position: relative; z-index: 1; padding: 1.5rem;
+  }
+  .poster-band-name {
+    font-family: var(--font-display);
+    font-size: 38px; letter-spacing: 0.06em; line-height: 1.05;
+  }
+  .poster-sub-venue {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-top: 12px; opacity: 0.55;
+  }
+  .poster-sub-date {
+    font-size: 12px; margin-top: 6px; opacity: 0.4;
+  }
+  .poster-card img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .poster-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,14,14,0.9) 0%, transparent 60%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.5rem; opacity: 0; transition: opacity 0.3s ease;
+  }
+  .poster-item:hover .poster-overlay { opacity: 1; }
+  .poster-overlay-title { font-family: var(--font-display); font-size: 28px; line-height: 1; }
+  .poster-overlay-meta { font-size: 12px; color: var(--mid); margin-top: 4px; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 1.5rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; color: rgba(255, 255, 255, 0.18);
+    letter-spacing: 0.05em; flex-wrap: wrap; gap: 0.5rem;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 700px) {
+    .posters-container { padding: 0 1.25rem 3rem; }
+    .page-header { padding: 6rem 1.25rem 2rem; }
+    nav { padding: 1rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Will Hynes <span>Photography</span></a>
+  <div class="nav-links">
+    <a href="will_hynes_gallery.html">Gigs</a>
+    <a href="will_hynes_posters.html" class="active">Posters</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page-header fade-up">
+  <h1>Poster<br><span>Design</span></h1>
+  <p>Bold, print-ready artwork for bands, promoters, and venues.</p>
+</div>
+
+<div class="posters-container">
+  <div id="posters-grid" class="posters-grid"></div>
+</div>
+
+<footer>
+  <span>© 2026 Will Hynes Photography</span>
+  <a href="index.html" style="color:rgba(255, 255, 255, 0.18); text-decoration:none;">← Back to portfolio</a>
+</footer>
+
+<script>
+  async function initPosters() {
+    const data = await portfolio.fetchSiteData();
+    if (!data) return;
+
+    const grid = document.getElementById('posters-grid');
+    
+    data.posters.forEach((poster, idx) => {
+      const item = document.createElement('div');
+      item.className = 'poster-item fade-up';
+      item.onclick = () => {
+        const group = data.posters.map(p => ({
+          src: p.imagePath || '', // Fallback for placeholder
+          title: `${p.title} · ${p.venue}`
+        }));
+        const realGroup = group.filter(p => p.src);
+        const actualIdx = realGroup.findIndex(p => p.src === poster.imagePath);
+        if (actualIdx !== -1) Lightbox.show(actualIdx, realGroup);
+      };
+
+      const colorConfig = poster.colorConfig || { bg: '#141414', color: '#888' };
+      
+      item.innerHTML = `
+        <div class="poster-card">
+          ${poster.imagePath ? `<img src="${poster.imagePath}" alt="${poster.title}">` : `
+            <div class="poster-visual" style="background:${colorConfig.bg}; color:${colorConfig.color};">
+              <div class="poster-lines-bg">
+                <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+                <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+                <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+              </div>
+              <div class="poster-text-inner">
+                <div class="poster-band-name">${poster.band.replace(' ', '<br>')}</div>
+                <div class="poster-sub-venue">${poster.venue}</div>
+                <div class="poster-sub-date">${poster.date}</div>
+              </div>
+            </div>
+          `}
+          <div class="poster-overlay">
+            <div class="poster-overlay-title">${poster.title}</div>
+            <div class="poster-overlay-meta">${poster.venue} · ${poster.date}</div>
+          </div>
+        </div>
+      `;
+      grid.appendChild(item);
+    });
+
+    portfolio.initFadeObserver();
+  }
+
+  initPosters();
+</script>
+</body>
+</html>
