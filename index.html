@@ -698,7 +698,7 @@
       posterGrid.innerHTML = featuredPosters.map((p, idx) => `
         <div class="poster-item" onclick="openPosterLightbox(${idx})">
           <div class="poster-fill" style="background: ${p.colorConfig?.bg || '#141414'}; color: ${p.colorConfig?.color || '#888'};">
-            ${p.imagePath ? `<img src="${p.imagePath}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover; display:block;">` : `
+            ${p.imagePath ? `<img src="${portfolio.getThumbnailPath(p.imagePath)}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover; display:block;">` : `
               <div class="poster-lines">
                 <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
                 <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
@@ -715,9 +715,9 @@
       `).join('');
 
       window.openPosterLightbox = (idx) => {
-        const group = featuredPosters.filter(p => p.imagePath).map(p => ({ src: p.imagePath, title: `${p.title} · ${p.venue}` }));
+        const group = featuredPosters.filter(p => p.imagePath).map(p => ({ src: portfolio.getOptimizedPath(p.imagePath), title: `${p.title} · ${p.venue}` }));
         const clickedPoster = featuredPosters[idx];
-        const actualIdx = group.findIndex(img => img.src === clickedPoster.imagePath);
+        const actualIdx = group.findIndex(img => img.src === portfolio.getOptimizedPath(clickedPoster.imagePath));
         if (actualIdx !== -1) Lightbox.show(actualIdx, group);
       };
     }

@@ -17,7 +17,7 @@
     "./media/DSCF0434 (1).jpg",
     "./media/DSCF0462.jpg",
     "./media/DSCF0354.jpg",
-    "./media/_DSF0225.jpg",
+    "./media/DSF0225.jpg",
     "./media/DSCF0264.jpg"
   ],
   "bands": [
@@ -30,23 +30,23 @@
       "colorClass": "t-purple",
       "photos": [
         {
-          "src": "./media/_DSF0189.jpg",
+          "src": "./media/DSF0189.jpg",
           "orientation": "portrait"
         },
         {
-          "src": "./media/_DSF0094.jpg",
+          "src": "./media/DSF0094.jpg",
           "orientation": "portrait"
         },
         {
-          "src": "./media/_DSF0199.jpg",
+          "src": "./media/DSF0199.jpg",
           "orientation": "portrait"
         },
         {
-          "src": "./media/_DSF0031.jpg",
+          "src": "./media/DSF0031.jpg",
           "orientation": "portrait"
         },
         {
-          "src": "./media/_DSF0225.jpg",
+          "src": "./media/DSF0225.jpg",
           "orientation": "landscape"
         }
       ]
