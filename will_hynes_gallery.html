@@ -369,7 +369,7 @@
                 }" onclick="openBandLightbox('${band.id}', ${index})">
                   ${
                     photo.src
-                      ? `<img src="${photo.src}" alt="${band.name} live">`
+                      ? `<img src="${portfolio.getThumbnailPath(photo.src)}" alt="${band.name} live" loading="lazy">`
                       : `
                     <div class="photo-slot-inner">
                       <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
@@ -400,13 +400,13 @@
           const group = band.photos
             .filter((p) => p.src)
             .map((p) => ({
-              src: p.src,
+              src: portfolio.getOptimizedPath(p.src),
               title: `${band.name} · ${band.venue || "Live"}`,
             }));
           const clickedPhoto = band.photos[photoIndex];
           if (!clickedPhoto || !clickedPhoto.src) return;
 
-          const actualIndex = group.findIndex((p) => p.src === clickedPhoto.src);
+          const actualIndex = group.findIndex((p) => p.src === portfolio.getOptimizedPath(clickedPhoto.src));
           if (actualIndex !== -1) Lightbox.show(actualIndex, group);
         };
 

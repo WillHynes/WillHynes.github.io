@@ -192,11 +192,11 @@
       item.className = 'poster-item fade-up';
       item.onclick = () => {
         const group = data.posters.map(p => ({
-          src: p.imagePath || '', // Fallback for placeholder
+          src: portfolio.getOptimizedPath(p.imagePath) || '', // Fallback for placeholder
           title: `${p.title} · ${p.venue}`
         }));
         const realGroup = group.filter(p => p.src);
-        const actualIdx = realGroup.findIndex(p => p.src === poster.imagePath);
+        const actualIdx = realGroup.findIndex(p => p.src === portfolio.getOptimizedPath(poster.imagePath));
         if (actualIdx !== -1) Lightbox.show(actualIdx, realGroup);
       };
 
@@ -204,7 +204,7 @@
       
       item.innerHTML = `
         <div class="poster-card">
-          ${poster.imagePath ? `<img src="${poster.imagePath}" alt="${poster.title}">` : `
+          ${poster.imagePath ? `<img src="${portfolio.getThumbnailPath(poster.imagePath)}" alt="${poster.title}" loading="lazy">` : `
             <div class="poster-visual" style="background:${colorConfig.bg}; color:${colorConfig.color};">
               <div class="poster-lines-bg">
                 <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>

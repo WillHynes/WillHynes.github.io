@@ -29,5 +29,16 @@ function initFadeObserver() {
   return observer;
 }
 
+// Image path helpers
+function getOptimizedPath(src) {
+  if (!src) return '';
+  return src.replace('media/', 'media/optimized/');
+}
+
+function getThumbnailPath(src) {
+  if (!src) return '';
+  return src.replace('media/', 'media/thumbnails/');
+}
+
 // Global export
-window.portfolio = { fetchSiteData, initFadeObserver };
+window.portfolio = { fetchSiteData, initFadeObserver, getOptimizedPath, getThumbnailPath };

@@ -630,7 +630,9 @@
       shuffled.forEach((src, i) => {
         const div = document.createElement("div");
         div.className = "hero-slide" + (i === 0 ? " active" : "");
-        div.style.backgroundImage = `url('${src}')`;
+        // Use optimized version for hero
+        const optimizedSrc = portfolio.getOptimizedPath(src);
+        div.style.backgroundImage = `url('${optimizedSrc}')`;
         heroBg.insertBefore(div, grain);
         slides.push(div);
       });
@@ -675,7 +677,7 @@
       photoGrid.innerHTML = featuredPhotos.map((p, idx) => `
         <div class="photo-item ${idx === 0 ? 'featured' : ''}" onclick="openFeaturedLightbox(${idx})">
           <div class="photo-fill ${p.orientation === 'portrait' ? 'tall' : ''}">
-            <img src="${p.src}" alt="${p.band} live" style="width:100%; height:100%; object-fit:contain; background:#111; display:block;">
+            <img src="${portfolio.getThumbnailPath(p.src)}" alt="${p.band} live" loading="lazy" style="width:100%; height:100%; object-fit:contain; background:#111; display:block;">
           </div>
           <div class="photo-overlay">
             <div class="photo-overlay-title">${p.band}</div>
@@ -685,7 +687,7 @@
       `).join('');
 
       window.openFeaturedLightbox = (idx) => {
-        const group = featuredPhotos.map(p => ({ src: p.src, title: `${p.band} · ${p.venue || 'Live'}` }));
+        const group = featuredPhotos.map(p => ({ src: portfolio.getOptimizedPath(p.src), title: `${p.band} · ${p.venue || 'Live'}` }));
         Lightbox.show(idx, group);
       };
 
