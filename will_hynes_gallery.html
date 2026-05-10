@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" href="site_data.json" as="fetch" crossorigin>
     <script src="js/main.js"></script>
     <script src="js/lightbox.js"></script>
     <style>
@@ -369,7 +370,7 @@
                 }" onclick="openBandLightbox('${band.id}', ${index})">
                   ${
                     photo.src
-                      ? `<img src="${portfolio.getThumbnailPath(photo.src)}" alt="${band.name} live" loading="lazy">`
+                      ? `<img src="${portfolio.getThumbnailPath(photo.src)}" alt="${band.name} live" loading="lazy" decoding="async">`
                       : `
                     <div class="photo-slot-inner">
                       <svg width="28" height="28" viewBox="0 0 32 32" fill="none">

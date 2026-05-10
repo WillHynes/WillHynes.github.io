@@ -29,15 +29,25 @@ function initFadeObserver() {
   return observer;
 }
 
+// WebP Support Detection
+let supportsWebP = false;
+const webpCheck = new Image();
+webpCheck.onload = webpCheck.onerror = () => {
+  supportsWebP = webpCheck.height === 2;
+};
+webpCheck.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+
 // Image path helpers
 function getOptimizedPath(src) {
   if (!src) return '';
-  return src.replace('media/', 'media/optimized/');
+  const path = src.replace('media/', 'media/optimized/');
+  return supportsWebP ? path.replace(/\.(jpg|jpeg)$/i, '.webp') : path;
 }
 
 function getThumbnailPath(src) {
   if (!src) return '';
-  return src.replace('media/', 'media/thumbnails/');
+  const path = src.replace('media/', 'media/thumbnails/');
+  return supportsWebP ? path.replace(/\.(jpg|jpeg)$/i, '.webp') : path;
 }
 
 // Global export

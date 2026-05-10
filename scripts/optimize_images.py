@@ -15,30 +15,37 @@ THUMB_SIZE = "600x600>"      # Max dimension 600
 
 def optimize_image(filename):
     input_path = os.path.join(MEDIA_DIR, filename)
+    base_name = os.path.splitext(filename)[0]
+    
+    # Optimized JPG
     opt_path = os.path.join(OPTIMIZED_DIR, filename)
+    # Optimized WebP
+    webp_path = os.path.join(OPTIMIZED_DIR, f"{base_name}.webp")
+    
+    # Thumb JPG
     thumb_path = os.path.join(THUMBNAILS_DIR, filename)
+    # Thumb WebP
+    thumb_webp_path = os.path.join(THUMBNAILS_DIR, f"{base_name}.webp")
 
-    # Convert to display version
-    if not os.path.exists(opt_path) or os.path.getmtime(input_path) > os.path.getmtime(opt_path):
-        print(f"Optimizing for display: {filename}")
-        subprocess.run([
-            'magick', input_path,
-            '-resize', DISPLAY_SIZE,
-            '-quality', '82',
-            '-strip',  # Remove metadata to save space
-            opt_path
-        ])
+    # Convert to display versions
+    for out_path, quality, format_name in [
+        (opt_path, '82', 'jpg'),
+        (webp_path, '75', 'webp')
+    ]:
+        if not os.path.exists(out_path) or os.path.getmtime(input_path) > os.path.getmtime(out_path):
+            print(f"Optimizing for display ({format_name}): {filename}")
+            cmd = ['magick', input_path, '-resize', DISPLAY_SIZE, '-quality', quality, '-strip', out_path]
+            subprocess.run(cmd)
 
-    # Convert to thumbnail version
-    if not os.path.exists(thumb_path) or os.path.getmtime(input_path) > os.path.getmtime(thumb_path):
-        print(f"Generating thumbnail: {filename}")
-        subprocess.run([
-            'magick', input_path,
-            '-resize', THUMB_SIZE,
-            '-quality', '75',
-            '-strip',
-            thumb_path
-        ])
+    # Convert to thumbnail versions
+    for out_path, quality, format_name in [
+        (thumb_path, '75', 'jpg'),
+        (thumb_webp_path, '65', 'webp')
+    ]:
+        if not os.path.exists(out_path) or os.path.getmtime(input_path) > os.path.getmtime(out_path):
+            print(f"Generating thumbnail ({format_name}): {filename}")
+            cmd = ['magick', input_path, '-resize', THUMB_SIZE, '-quality', quality, '-strip', out_path]
+            subprocess.run(cmd)
 
 def main():
     if not os.path.exists(OPTIMIZED_DIR): os.makedirs(OPTIMIZED_DIR)

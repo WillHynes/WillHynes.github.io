@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="preload" href="site_data.json" as="fetch" crossorigin>
 <script src="js/main.js"></script>
 <script src="js/lightbox.js"></script>
 <style>
@@ -653,9 +654,10 @@
           (p) =>
             new Promise((res) => {
               const img = new Image();
+              const testSrc = portfolio.getOptimizedPath(p);
               img.onload = () => res(p);
               img.onerror = () => res(null);
-              img.src = p;
+              img.src = testSrc;
             }),
         ),
       ).then((results) => results.filter(Boolean));
@@ -677,7 +679,7 @@
       photoGrid.innerHTML = featuredPhotos.map((p, idx) => `
         <div class="photo-item ${idx === 0 ? 'featured' : ''}" onclick="openFeaturedLightbox(${idx})">
           <div class="photo-fill ${p.orientation === 'portrait' ? 'tall' : ''}">
-            <img src="${portfolio.getThumbnailPath(p.src)}" alt="${p.band} live" loading="lazy" style="width:100%; height:100%; object-fit:contain; background:#111; display:block;">
+            <img src="${portfolio.getThumbnailPath(p.src)}" alt="${p.band} live" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:contain; background:#111; display:block;">
           </div>
           <div class="photo-overlay">
             <div class="photo-overlay-title">${p.band}</div>
@@ -698,7 +700,7 @@
       posterGrid.innerHTML = featuredPosters.map((p, idx) => `
         <div class="poster-item" onclick="openPosterLightbox(${idx})">
           <div class="poster-fill" style="background: ${p.colorConfig?.bg || '#141414'}; color: ${p.colorConfig?.color || '#888'};">
-            ${p.imagePath ? `<img src="${portfolio.getThumbnailPath(p.imagePath)}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover; display:block;">` : `
+            ${p.imagePath ? `<img src="${portfolio.getThumbnailPath(p.imagePath)}" alt="${p.title}" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">` : `
               <div class="poster-lines">
                 <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
                 <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
