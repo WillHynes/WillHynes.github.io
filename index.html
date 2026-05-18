@@ -1,731 +1,1065 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Will Hynes Photography</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<link rel="preload" href="site_data.json" as="fetch" crossorigin>
-<script src="js/main.js"></script>
-<script src="js/lightbox.js"></script>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will Hynes Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="site_data.json" as="fetch" crossorigin />
+    <script src="js/main.js"></script>
+    <script src="js/lightbox.js"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  :root {
-    --coral: #D85A30;
-    --coral-light: #F0997B;
-    --coral-pale: #FAECE7;
-    --purple: #7F77DD;
-    --purple-deep: #3C3489;
-    --purple-pale: #EEEDFE;
-    --off-black: #0e0e0e;
-    --off-white: #F5F2ED;
-    --mid: #888780;
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-  }
+      :root {
+        --coral: #d85a30;
+        --coral-light: #f0997b;
+        --coral-pale: #faece7;
+        --purple: #7f77dd;
+        --purple-deep: #3c3489;
+        --purple-pale: #eeedfe;
+        --off-black: #0e0e0e;
+        --off-white: #f5f2ed;
+        --mid: #888780;
+        --font-display: "Bebas Neue", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+      }
 
-  html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-  body {
-    background: var(--off-black);
-    color: var(--off-white);
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+      body {
+        background: var(--off-black);
+        color: var(--off-white);
+        font-family: var(--font-body);
+        font-weight: 300;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 2.5rem;
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    background: rgba(14,14,14,0.85);
-    backdrop-filter: blur(12px);
-  }
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 22px;
-    letter-spacing: 0.04em;
-    color: var(--off-white);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--coral); }
-  .nav-links { display: flex; gap: 2rem; }
-  .nav-links a {
-    font-size: 13px;
-    color: var(--mid);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--off-white); }
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2.5rem;
-    padding-top: 100px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-  }
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 2.5rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+        background: rgba(14, 14, 14, 0.85);
+        backdrop-filter: blur(12px);
+      }
+      .nav-logo {
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        color: var(--off-white);
+        text-decoration: none;
+      }
+      .nav-logo span {
+        color: var(--coral);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+      .nav-links a {
+        font-size: 13px;
+        color: var(--mid);
+        text-decoration: none;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--off-white);
+      }
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 2.5rem;
+        padding-top: 100px;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+      }
 
-  /* ── HERO SLIDESHOW ── */
-  .hero-bg {
-    position: absolute; inset: 0;
-    overflow: hidden;
-  }
-  .hero-slide {
-    position: absolute; inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 1.2s ease;
-  }
-  .hero-slide.active { opacity: 1; }
-  /* dark overlay so text stays readable */
-  .hero-slide::after {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(to top, rgba(14,14,14,0.85) 0%, rgba(14,14,14,0.4) 50%, rgba(14,14,14,0.55) 100%),
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(127,119,221,0.12) 0%, transparent 70%);
-  }
-  /* grain */
-  .hero-grain {
-    position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.35;
-  }
-  /* fallback if no images found */
-  .hero-bg-fallback {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(127,119,221,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(216,90,48,0.12) 0%, transparent 60%),
-      var(--off-black);
-  }
+      /* ── HERO SLIDESHOW ── */
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.2s ease;
+      }
+      .hero-slide.active {
+        opacity: 1;
+      }
+      /* dark overlay so text stays readable */
+      .hero-slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            to top,
+            rgba(14, 14, 14, 0.85) 0%,
+            rgba(14, 14, 14, 0.4) 50%,
+            rgba(14, 14, 14, 0.55) 100%
+          ),
+          radial-gradient(
+            ellipse 60% 50% at 70% 40%,
+            rgba(127, 119, 221, 0.12) 0%,
+            transparent 70%
+          );
+      }
+      /* grain */
+      .hero-grain {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        opacity: 0.35;
+      }
+      /* fallback if no images found */
+      .hero-bg-fallback {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 60% 50% at 70% 40%,
+            rgba(127, 119, 221, 0.18) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 40% 60% at 20% 80%,
+            rgba(216, 90, 48, 0.12) 0%,
+            transparent 60%
+          ),
+          var(--off-black);
+      }
 
-  .hero-content { position: relative; z-index: 2; }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
 
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--coral-light);
-    margin-bottom: 1.5rem;
-  }
-  .hero-tag::before {
-    content: '';
-    display: block; width: 24px; height: 1px;
-    background: var(--coral-light);
-  }
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--coral-light);
+        margin-bottom: 1.5rem;
+      }
+      .hero-tag::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--coral-light);
+      }
 
-  h1 {
-    font-family: var(--font-display);
-    font-size: clamp(72px, 12vw, 140px);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    margin-bottom: 2rem;
-  }
-  h1 .accent { color: var(--coral); }
-  h1 .accent-purple { color: var(--purple); }
+      h1 {
+        font-family: var(--font-display);
+        font-size: clamp(72px, 12vw, 140px);
+        line-height: 0.92;
+        letter-spacing: 0.02em;
+        margin-bottom: 2rem;
+      }
+      h1 .accent {
+        color: var(--coral);
+      }
+      h1 .accent-purple {
+        color: var(--purple);
+      }
 
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .hero-desc {
-    font-size: 16px;
-    color: var(--mid);
-    max-width: 380px;
-    line-height: 1.7;
-  }
-  .hero-desc strong { color: var(--off-white); font-weight: 400; }
+      .hero-bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .hero-desc {
+        font-size: 16px;
+        color: var(--mid);
+        max-width: 380px;
+        line-height: 1.7;
+      }
+      .hero-desc strong {
+        color: var(--off-white);
+        font-weight: 400;
+      }
 
-  .hero-stats {
-    display: flex; gap: 2.5rem;
-  }
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 36px;
-    color: var(--off-white);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 11px;
-    color: var(--mid);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+      }
+      .stat-num {
+        font-family: var(--font-display);
+        font-size: 36px;
+        color: var(--off-white);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 11px;
+        color: var(--mid);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
 
-  .scroll-hint {
-    position: absolute; bottom: 2rem; right: 2.5rem;
-    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    writing-mode: vertical-rl;
-    z-index: 2;
-  }
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        right: 2.5rem;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        writing-mode: vertical-rl;
+        z-index: 2;
+      }
 
-  /* ── BANDS TICKER ── */
-  .ticker {
-    border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    overflow: hidden;
-    padding: 0.85rem 0;
-    background: var(--off-black);
-  }
-  .ticker-track {
-    display: flex;
-    gap: 0;
-    animation: ticker 20s linear infinite;
-    width: max-content;
-  }
-  .ticker-track:hover { animation-play-state: paused; }
-  .ticker-item {
-    display: inline-flex; align-items: center; gap: 1.5rem;
-    padding: 0 2rem;
-    font-family: var(--font-display);
-    font-size: 15px;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.25);
-    white-space: nowrap;
-  }
-  .ticker-dot {
-    width: 5px; height: 5px; border-radius: 50%;
-    background: var(--coral);
-    flex-shrink: 0;
-  }
-  @keyframes ticker {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+      /* ── BANDS TICKER ── */
+      .ticker {
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+        padding: 0.85rem 0;
+        background: var(--off-black);
+      }
+      .ticker-track {
+        display: flex;
+        gap: 0;
+        animation: ticker 20s linear infinite;
+        width: max-content;
+      }
+      .ticker-track:hover {
+        animation-play-state: paused;
+      }
+      .ticker-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0 2rem;
+        font-family: var(--font-display);
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.25);
+        white-space: nowrap;
+      }
+      .ticker-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--coral);
+        flex-shrink: 0;
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
 
-  /* ── SECTION SHARED ── */
-  section { padding: 5rem 2.5rem; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
-  .section-header {
-    display: flex; align-items: baseline; justify-content: space-between;
-    margin-bottom: 3rem;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: 48px;
-    letter-spacing: 0.03em;
-    line-height: 1;
-  }
-  .section-title .coral { color: var(--coral); }
-  .section-title .purple { color: var(--purple); }
-  .section-index {
-    font-size: 11px; color: var(--mid);
-    letter-spacing: 0.1em; text-transform: uppercase;
-  }
+      /* ── SECTION SHARED ── */
+      section {
+        padding: 5rem 2.5rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+      }
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .section-title {
+        font-family: var(--font-display);
+        font-size: 48px;
+        letter-spacing: 0.03em;
+        line-height: 1;
+      }
+      .section-title .coral {
+        color: var(--coral);
+      }
+      .section-title .purple {
+        color: var(--purple);
+      }
+      .section-index {
+        font-size: 11px;
+        color: var(--mid);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
 
-  /* ── PHOTOGRAPHY ── */
-  .photo-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 8px;
-  }
-  .photo-item {
-    background: #1a1a1a;
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-  }
-  .photo-item.featured { grid-row: span 2; }
-  .photo-fill {
-    width: 100%; height: 100%; min-height: 160px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 10px;
-  }
-  .photo-fill.tall { min-height: 340px; }
-  .photo-icon {
-    width: 32px; height: 32px; opacity: 0.25;
-  }
-  .photo-fill span {
-    font-size: 11px; color: rgba(255,255,255,0.2);
-    letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .photo-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(14,14,14,0.8) 0%, transparent 50%);
-    display: flex; flex-direction: column;
-    justify-content: flex-end;
-    padding: 1rem;
-    opacity: 0;
-    transition: opacity 0.25s;
-  }
-  .photo-item:hover .photo-overlay { opacity: 1; }
-  .photo-overlay-title { font-size: 14px; font-weight: 500; }
-  .photo-overlay-sub { font-size: 12px; color: var(--mid); }
+      /* ── PHOTOGRAPHY ── */
+      .photo-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 8px;
+      }
+      .photo-item {
+        background: #1a1a1a;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+      }
+      .photo-item.featured {
+        grid-row: span 2;
+      }
+      .photo-fill {
+        width: 100%;
+        height: 100%;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .photo-fill.tall {
+        min-height: 340px;
+      }
+      .photo-icon {
+        width: 32px;
+        height: 32px;
+        opacity: 0.25;
+      }
+      .photo-fill span {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.2);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .photo-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(14, 14, 14, 0.8) 0%,
+          transparent 50%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      .photo-item:hover .photo-overlay {
+        opacity: 1;
+      }
+      .photo-overlay-title {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .photo-overlay-sub {
+        font-size: 12px;
+        color: var(--mid);
+      }
 
-  /* Tinted placeholder backgrounds */
-  .tint-a { background: #1a1016; }
-  .tint-b { background: #0f1020; }
-  .tint-c { background: #141410; }
-  .tint-d { background: #1a1412; }
-  .tint-e { background: #0e1318; }
+      /* Tinted placeholder backgrounds */
+      .tint-a {
+        background: #1a1016;
+      }
+      .tint-b {
+        background: #0f1020;
+      }
+      .tint-c {
+        background: #141410;
+      }
+      .tint-d {
+        background: #1a1412;
+      }
+      .tint-e {
+        background: #0e1318;
+      }
 
-  /* ── POSTERS ── */
-  .poster-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-  }
-  .poster-item {
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-  .poster-fill {
-    aspect-ratio: 2/3;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px;
-    position: relative;
-  }
-  .poster-inner {
-    text-align: center;
-    z-index: 1;
-    position: relative;
-  }
-  .poster-band {
-    font-family: var(--font-display);
-    font-size: 20px;
-    letter-spacing: 0.06em;
-    line-height: 1.1;
-  }
-  .poster-venue {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-top: 6px;
-    opacity: 0.6;
-  }
-  .poster-date {
-    font-size: 11px;
-    margin-top: 4px;
-    opacity: 0.45;
-  }
-  .poster-lines {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    justify-content: space-between;
-    padding: 12px;
-    opacity: 0.07;
-  }
-  .h-line { height: 0.5px; background: currentColor; }
+      /* ── POSTERS ── */
+      .poster-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+      .poster-item {
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .poster-fill {
+        aspect-ratio: 4/5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
+      }
+      .poster-inner {
+        text-align: center;
+        z-index: 1;
+        position: relative;
+      }
+      .poster-band {
+        font-family: var(--font-display);
+        font-size: 20px;
+        letter-spacing: 0.06em;
+        line-height: 1.1;
+      }
+      .poster-venue {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-top: 6px;
+        opacity: 0.6;
+      }
+      .poster-date {
+        font-size: 11px;
+        margin-top: 4px;
+        opacity: 0.45;
+      }
+      .poster-lines {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 12px;
+        opacity: 0.07;
+      }
+      .h-line {
+        height: 0.5px;
+        background: currentColor;
+      }
 
-  /* ── ABOUT ── */
-  .about-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .about-visual {
-    aspect-ratio: 4/5;
-    background: #1a1a1a;
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .about-visual::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 60%, rgba(127,119,221,0.15), transparent 60%);
-  }
-  .about-placeholder {
-    font-size: 12px; color: rgba(255,255,255,0.15);
-    letter-spacing: 0.1em; text-transform: uppercase;
-    position: relative; z-index: 1;
-  }
-  .about-text h2 {
-    font-family: var(--font-display);
-    font-size: 42px;
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.03em;
-  }
-  .about-text p {
-    font-size: 15px;
-    color: var(--mid);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-  .about-text p strong { color: var(--off-white); font-weight: 400; }
-  .tags {
-    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 2rem;
-  }
-  .tag {
-    font-size: 12px; letter-spacing: 0.06em;
-    padding: 5px 14px;
-    border: 0.5px solid rgba(255,255,255,0.12);
-    border-radius: 999px;
-    color: var(--mid);
-  }
+      /* ── ABOUT ── */
+      .about-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .about-visual {
+        aspect-ratio: 4/5;
+        background: #1a1a1a;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .about-visual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 30% 60%,
+          rgba(127, 119, 221, 0.15),
+          transparent 60%
+        );
+      }
+      .about-placeholder {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.15);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+      }
+      .photo-credit {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        z-index: 2;
+      }
+      .about-text h2 {
+        font-family: var(--font-display);
+        font-size: 42px;
+        line-height: 1.05;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.03em;
+      }
+      .about-text p {
+        font-size: 15px;
+        color: var(--mid);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+      .about-text p strong {
+        color: var(--off-white);
+        font-weight: 400;
+      }
+      .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+      .tag {
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        padding: 5px 14px;
+        border: 0.5px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        color: var(--mid);
+      }
 
-  /* ── CONTACT ── */
-  .contact-inner {
-    display: flex; flex-direction: column;
-    align-items: center; text-align: center;
-    gap: 2rem;
-  }
-  .contact-inner h2 {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 90px);
-    letter-spacing: 0.03em;
-    line-height: 0.95;
-  }
-  .contact-inner h2 span { color: var(--coral); }
-  .contact-sub {
-    font-size: 15px; color: var(--mid);
-    max-width: 400px; line-height: 1.7;
-  }
-  .contact-links {
-    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
-  }
-  .contact-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 24px;
-    border: 0.5px solid rgba(255,255,255,0.12);
-    border-radius: 2px;
-    font-size: 13px;
-    color: var(--off-white);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .contact-link:hover { border-color: var(--coral); color: var(--coral); }
-  .contact-link.primary {
-    background: var(--coral);
-    border-color: var(--coral);
-    color: #fff;
-  }
-  .contact-link.primary:hover { background: #c04e26; border-color: #c04e26; color: #fff; }
+      /* ── CONTACT ── */
+      .contact-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+      }
+      .contact-inner h2 {
+        font-family: var(--font-display);
+        font-size: clamp(48px, 8vw, 90px);
+        letter-spacing: 0.03em;
+        line-height: 0.95;
+      }
+      .contact-inner h2 span {
+        color: var(--coral);
+      }
+      .contact-sub {
+        font-size: 15px;
+        color: var(--mid);
+        max-width: 400px;
+        line-height: 1.7;
+      }
+      .contact-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border: 0.5px solid rgba(255, 255, 255, 0.12);
+        border-radius: 2px;
+        font-size: 13px;
+        color: var(--off-white);
+        text-decoration: none;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .contact-link:hover {
+        border-color: var(--coral);
+        color: var(--coral);
+      }
+      .contact-link.primary {
+        background: var(--coral);
+        border-color: var(--coral);
+        color: #fff;
+      }
+      .contact-link.primary:hover {
+        background: #c04e26;
+        border-color: #c04e26;
+        color: #fff;
+      }
 
-  /* ── FOOTER ── */
-  footer {
-    padding: 1.5rem 2.5rem;
-    display: flex; align-items: center; justify-content: space-between;
-    font-size: 12px; color: rgba(255,255,255,0.18);
-    letter-spacing: 0.05em;
-    flex-wrap: wrap; gap: 0.5rem;
-  }
+      /* ── FOOTER ── */
+      footer {
+        padding: 1.5rem 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.18);
+        letter-spacing: 0.05em;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
 
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+      /* ── ANIMATIONS ── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-  @media (max-width: 700px) {
-    .photo-grid { grid-template-columns: 1fr; }
-    .poster-grid { grid-template-columns: repeat(2, 1fr); }
-    .about-inner { grid-template-columns: 1fr; }
-    .photo-item.featured { grid-row: span 1; }
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { gap: 1.25rem; }
-    section { padding: 3.5rem 1.25rem; }
-    .hero { padding: 1.25rem; padding-top: 80px; }
-    h1 { font-size: 64px; }
-  }
-</style>
-</head>
-<body>
+      @media (max-width: 700px) {
+        .photo-grid {
+          grid-template-columns: 1fr;
+        }
+        .poster-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .about-inner {
+          grid-template-columns: 1fr;
+        }
+        .photo-item.featured {
+          grid-row: span 1;
+        }
+        nav {
+          padding: 1rem 1.25rem;
+        }
+        .nav-links {
+          gap: 1.25rem;
+        }
+        section {
+          padding: 3.5rem 1.25rem;
+        }
+        .hero {
+          padding: 1.25rem;
+          padding-top: 80px;
+        }
+        h1 {
+          font-size: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="nav-logo">Will Hynes <span>Photography</span></a>
+      <div class="nav-links">
+        <a href="#photography">Gigs</a>
+        <a href="will_hynes_posters.html">Posters</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Will Hynes <span>Photography</span></a>
-  <div class="nav-links">
-    <a href="#photography">Gigs</a>
-    <a href="will_hynes_posters.html">Posters</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-bg">
-    <div class="hero-bg-fallback"></div>
-    <!-- slides injected by JS from media/ folder -->
-    <div class="hero-grain"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-tag">Gig photography & poster design</div>
-    <h1>
-      LOUD.<br>
-      <span class="accent">RAW.</span><br>
-      <span class="accent-purple">LIVE.</span>
-    </h1>
-    <div class="hero-bottom">
-      <p class="hero-desc">
-        Capturing the <strong>energy, chaos, and magic</strong> of live music — from the pit to the rafters. Based in Herefordshire, shooting stages across the UK.
-      </p>
-      <div class="hero-stats">
-        <div>
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Bands</div>
-        </div>
-        <div>
-          <div class="stat-num">Countless</div>
-          <div class="stat-label">Gigs shot</div>
-        </div>
-        <div>
-          <div class="stat-num">2</div>
-          <div class="stat-label">Venues</div>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-bg">
+        <div class="hero-bg-fallback"></div>
+        <!-- slides injected by JS from media/ folder -->
+        <div class="hero-grain"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-tag">Gig photography & poster design</div>
+        <h1>
+          LOUD.<br />
+          <span class="accent">RAW.</span><br />
+          <span class="accent-purple">LIVE.</span>
+        </h1>
+        <div class="hero-bottom">
+          <p class="hero-desc">
+            Capturing the <strong>energy, chaos, and magic</strong> of live
+            music — from the pit to the rafters. Based in Herefordshire,
+            shooting stages across the UK.
+          </p>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Bands</div>
+            </div>
+            <div>
+              <div class="stat-num">Countless</div>
+              <div class="stat-label">Gigs shot</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item"><span class="ticker-dot"></span>Dreamwave</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Yungold</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>The Jam Factory</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Pollyanna Blue</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Dead On Arrival</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>The Herdsman</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Humdrum</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Gray Space</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Lumora</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>The Makings</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Since</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Versaints</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Dreamwave</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Yungold</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>The Jam Factory</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Pollyanna Blue</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Dead On Arrival</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>The Herdsman</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Humdrum</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Gray Space</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Lumora</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>The Makings</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Since</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Versaints</span>
-  </div>
-</div>
-
-<!-- PHOTOGRAPHY -->
-<section id="photography" class="fade-up">
-  <div class="section-header">
-    <div class="section-title"><span class="coral">01</span> Gig photography</div>
-    <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
-      <div class="section-index">The Jam Factory · The Herdsman</div>
-      <a href="will_hynes_gallery.html" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--coral-light); text-decoration:none; border-bottom: 0.5px solid var(--coral-light); padding-bottom:1px;">View all photos →</a>
-    </div>
-  </div>
-  <div id="featured-photo-grid" class="photo-grid">
-    <!-- Dynamically populated -->
-  </div>
-</section>
-
-<!-- POSTERS -->
-<section id="posters" class="fade-up">
-  <div class="section-header">
-    <div class="section-title"><span class="purple">02</span> Poster design</div>
-    <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
-      <div class="section-index">Print-ready gig artwork</div>
-      <a href="will_hynes_posters.html" style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--purple); text-decoration:none; border-bottom: 0.5px solid var(--purple); padding-bottom:1px;">View all posters →</a>
-    </div>
-  </div>
-  <div id="featured-poster-grid" class="poster-grid">
-    <!-- Dynamically populated -->
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="fade-up">
-  <div class="about-inner">
-    <div class="about-visual">
-      <div class="about-placeholder">your portrait</div>
-    </div>
-    <div class="about-text">
-      <h2>WILL<br>HYNES.</h2>
-      <p>
-        I'm a photographer and graphic designer based in Herefordshire, specialising in <strong>live music photography</strong> and <strong>gig poster design</strong>.
-      </p>
-      <p>
-        Most nights you'll find me in the pit at <strong>The Jam Factory</strong> or <strong>The Herdsman</strong> — shooting bands like Dreamwave, Yungold, Pollyanna Blue, and Dead On Arrival. I work fast, I work quiet, and I don't miss the moment.
-      </p>
-      <p>
-        On the design side, I make bold, print-ready posters for bands and promoters. Every poster is built around the music — not a template.
-      </p>
-      <div class="tags">
-        <span class="tag">Gig photography</span>
-        <span class="tag">Concert photography</span>
-        <span class="tag">Poster design</span>
-        <span class="tag">The Jam Factory</span>
-        <span class="tag">The Herdsman</span>
-        <span class="tag">Herefordshire</span>
+    <!-- TICKER -->
+    <div class="ticker">
+      <div class="ticker-track">
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Dreamwave</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Yungold</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>The Jam Factory</span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Pollyanna Blue</span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Dead On Arrival</span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>The Herdsman</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Humdrum</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Gray Space</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Lumora</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>The Makings</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Since</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Versaints</span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Dreamwave</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Yungold</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>The Jam Factory</span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Pollyanna Blue</span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Dead On Arrival</span
+        >
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>The Herdsman</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Humdrum</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Gray Space</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Lumora</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>The Makings</span
+        >
+        <span class="ticker-item"><span class="ticker-dot"></span>Since</span>
+        <span class="ticker-item"
+          ><span class="ticker-dot"></span>Versaints</span
+        >
       </div>
     </div>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact" class="fade-up">
-  <div class="contact-inner">
-    <h2>LET'S MAKE<br><span>SOMETHING.</span></h2>
-    <p class="contact-sub">Shooting a gig? Need a poster? Get in touch and let's talk about your project.</p>
-    <div class="contact-links">
-      <a class="contact-link primary" href="mailto:will@willhynes.com">Email me</a>
-      <a class="contact-link" href="https://instagram.com/will_hynes01" target="_blank">Instagram</a>
-    </div>
-  </div>
-</section>
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="fade-up">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="coral">01</span> Gig photography
+        </div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+          "
+        >
+          <div class="section-index">The Jam Factory · The Herdsman</div>
+          <a
+            href="will_hynes_gallery.html"
+            style="
+              font-size: 12px;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              color: var(--coral-light);
+              text-decoration: none;
+              border-bottom: 0.5px solid var(--coral-light);
+              padding-bottom: 1px;
+            "
+            >View all photos →</a
+          >
+        </div>
+      </div>
+      <div id="featured-photo-grid" class="photo-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <span>© 2026 Will Hynes Photography</span>
-  <span>Herefordshire, UK</span>
-</footer>
+    <!-- POSTERS -->
+    <section id="posters" class="fade-up">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="purple">02</span> Poster design
+        </div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+          "
+        >
+          <div class="section-index">Print-ready gig artwork</div>
+          <a
+            href="will_hynes_posters.html"
+            style="
+              font-size: 12px;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              color: var(--purple);
+              text-decoration: none;
+              border-bottom: 0.5px solid var(--purple);
+              padding-bottom: 1px;
+            "
+            >View all posters →</a
+          >
+        </div>
+      </div>
+      <div id="featured-poster-grid" class="poster-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
 
-<script>
-  async function initHome() {
-    const data = await portfolio.fetchSiteData();
+    <!-- ABOUT -->
+    <section id="about" class="fade-up">
+      <div class="about-inner">
+        <div class="about-visual">
+          <div class="about-placeholder">
+            <img
+              src="media/optimized/pfp.jpg"
+              alt="figure holding camera in infront of face, pointed at viewer"
+            />
+          </div>
+          <div class="photo-credit">Credit @viks.snaps</div>
+        </div>
+        <div class="about-text">
+          <h2>WILL<br />HYNES.</h2>
+          <p>
+            I'm a photographer and graphic designer based in Herefordshire,
+            specialising in <strong>live music photography</strong> and
+            <strong>gig poster design</strong>.
+          </p>
+          <p>
+            Most nights you'll find me in the pit at
+            <strong>The Jam Factory</strong> — shooting bands like Dreamwave,
+            Yungold, Pollyanna Blue, and Dead On Arrival. I'm a musician too, so
+            I know what that energy on stage feels like, and I want to capure
+            that in my work. Be that the messy hair, the torn up setlists, or
+            the cracked cymbals - it's all a part of the moment.
+          </p>
+          <p>
+            On the design side, I make bold, print-ready posters for bands and
+            promoters. Every poster is built around the music, and curated to
+            match their feel.
+          </p>
+          <div class="tags">
+            <span class="tag">Gig photography</span>
+            <span class="tag">Concert photography</span>
+            <span class="tag">Poster design</span>
+            <span class="tag">The Jam Factory</span>
+            <span class="tag">The Herdsman</span>
+            <span class="tag">Herefordshire</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    // ── FADE-IN OBSERVER ──
-    portfolio.initFadeObserver();
+    <!-- CONTACT -->
+    <section id="contact" class="fade-up">
+      <div class="contact-inner">
+        <h2>LET'S MAKE<br /><span>SOMETHING.</span></h2>
+        <p class="contact-sub">
+          Shooting a gig? Need a poster? Get in touch and let's talk about your
+          project.
+        </p>
+        <div class="contact-links">
+          <a class="contact-link primary" href="mailto:will@willhynes.com"
+            >Email me</a
+          >
+          <a
+            class="contact-link"
+            href="https://instagram.com/will_hynes01"
+            target="_blank"
+            >Instagram</a
+          >
+        </div>
+      </div>
+    </section>
 
-    // ── HERO SLIDESHOW ──
-    const heroImages = data ? data.heroImages : [];
-    const heroBg = document.querySelector(".hero-bg");
-    const grain = heroBg.querySelector(".hero-grain");
-    let slides = [];
-    let currentSlide = 0;
-    let slideshowTimer = null;
+    <!-- FOOTER -->
+    <footer>
+      <span>© 2026 Will Hynes Photography</span>
+      <span>Herefordshire, UK</span>
+    </footer>
 
-    function buildSlideshow(images) {
-      heroBg.querySelectorAll(".hero-slide").forEach((s) => s.remove());
-      slides = [];
-      if (!images.length) return;
-      const shuffled = [...images].sort(() => Math.random() - 0.5);
-      shuffled.forEach((src, i) => {
-        const div = document.createElement("div");
-        div.className = "hero-slide" + (i === 0 ? " active" : "");
-        // Use optimized version for hero
-        const optimizedSrc = portfolio.getOptimizedPath(src);
-        div.style.backgroundImage = `url('${optimizedSrc}')`;
-        heroBg.insertBefore(div, grain);
-        slides.push(div);
-      });
-      currentSlide = 0;
-      if (slideshowTimer) clearInterval(slideshowTimer);
-      if (slides.length > 1) slideshowTimer = setInterval(nextSlide, 5000);
-    }
+    <script>
+      async function initHome() {
+        const data = await portfolio.fetchSiteData();
 
-    function nextSlide() {
-      slides[currentSlide].classList.remove("active");
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add("active");
-    }
+        // ── FADE-IN OBSERVER ──
+        portfolio.initFadeObserver();
 
-    function filterLoadableImages(paths) {
-      return Promise.all(
-        paths.map(
-          (p) =>
-            new Promise((res) => {
-              const img = new Image();
-              const testSrc = portfolio.getOptimizedPath(p);
-              img.onload = () => res(p);
-              img.onerror = () => res(null);
-              img.src = testSrc;
-            }),
-        ),
-      ).then((results) => results.filter(Boolean));
-    }
+        // ── HERO SLIDESHOW ──
+        const heroImages = data ? data.heroImages : [];
+        const heroBg = document.querySelector(".hero-bg");
+        const grain = heroBg.querySelector(".hero-grain");
+        let slides = [];
+        let currentSlide = 0;
+        let slideshowTimer = null;
 
-    if (heroImages.length) {
-      filterLoadableImages(heroImages).then((loaded) => buildSlideshow(loaded));
-    }
+        function buildSlideshow(images) {
+          heroBg.querySelectorAll(".hero-slide").forEach((s) => s.remove());
+          slides = [];
+          if (!images.length) return;
+          const shuffled = [...images].sort(() => Math.random() - 0.5);
+          shuffled.forEach((src, i) => {
+            const div = document.createElement("div");
+            div.className = "hero-slide" + (i === 0 ? " active" : "");
+            // Use optimized version for hero
+            const optimizedSrc = portfolio.getOptimizedPath(src);
+            div.style.backgroundImage = `url('${optimizedSrc}')`;
+            heroBg.insertBefore(div, grain);
+            slides.push(div);
+          });
+          currentSlide = 0;
+          if (slideshowTimer) clearInterval(slideshowTimer);
+          if (slides.length > 1) slideshowTimer = setInterval(nextSlide, 5000);
+        }
 
-    // ── DYNAMIC FEATURED GRIDS ──
-    if (data) {
-      // 1. Featured Photography (Random selection of 5 photos from across all bands)
-      const photoGrid = document.getElementById("featured-photo-grid");
-      const allPhotos = data.bands.flatMap(b => b.photos.filter(p => p.src).map(p => ({ ...p, band: b.name, venue: b.venue })));
-      
-      // Shuffle and take 5
-      const featuredPhotos = allPhotos.sort(() => 0.5 - Math.random()).slice(0, 5);
-      
-      photoGrid.innerHTML = featuredPhotos.map((p, idx) => `
-        <div class="photo-item ${idx === 0 ? 'featured' : ''}" onclick="openFeaturedLightbox(${idx})">
-          <div class="photo-fill ${p.orientation === 'portrait' ? 'tall' : ''}">
+        function nextSlide() {
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }
+
+        function filterLoadableImages(paths) {
+          return Promise.all(
+            paths.map(
+              (p) =>
+                new Promise((res) => {
+                  const img = new Image();
+                  const testSrc = portfolio.getOptimizedPath(p);
+                  img.onload = () => res(p);
+                  img.onerror = () => res(null);
+                  img.src = testSrc;
+                }),
+            ),
+          ).then((results) => results.filter(Boolean));
+        }
+
+        if (heroImages.length) {
+          filterLoadableImages(heroImages).then((loaded) =>
+            buildSlideshow(loaded),
+          );
+        }
+
+        // ── DYNAMIC FEATURED GRIDS ──
+        if (data) {
+          // 1. Featured Photography (Random selection of 5 photos from across all bands)
+          const photoGrid = document.getElementById("featured-photo-grid");
+          const allPhotos = data.bands.flatMap((b) =>
+            b.photos
+              .filter((p) => p.src)
+              .map((p) => ({ ...p, band: b.name, venue: b.venue })),
+          );
+
+          // Shuffle and take 5
+          const featuredPhotos = allPhotos
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 5);
+
+          photoGrid.innerHTML = featuredPhotos
+            .map(
+              (p, idx) => `
+        <div class="photo-item ${idx === 0 ? "featured" : ""}" onclick="openFeaturedLightbox(${idx})">
+          <div class="photo-fill ${p.orientation === "portrait" ? "tall" : ""}">
             <img src="${portfolio.getThumbnailPath(p.src)}" alt="${p.band} live" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:contain; background:#111; display:block;">
           </div>
           <div class="photo-overlay">
             <div class="photo-overlay-title">${p.band}</div>
-            <div class="photo-overlay-sub">${p.venue || 'Live'}</div>
+            <div class="photo-overlay-sub">${p.venue || "Live"}</div>
           </div>
         </div>
-      `).join('');
+      `,
+            )
+            .join("");
 
-      window.openFeaturedLightbox = (idx) => {
-        const group = featuredPhotos.map(p => ({ src: portfolio.getOptimizedPath(p.src), title: `${p.band} · ${p.venue || 'Live'}` }));
-        Lightbox.show(idx, group);
-      };
+          window.openFeaturedLightbox = (idx) => {
+            const group = featuredPhotos.map((p) => ({
+              src: portfolio.getOptimizedPath(p.src),
+              title: `${p.band} · ${p.venue || "Live"}`,
+            }));
+            Lightbox.show(idx, group);
+          };
 
-      // 2. Featured Posters (Grab first 4)
-      const posterGrid = document.getElementById("featured-poster-grid");
-      const featuredPosters = data.posters.slice(0, 4);
+          // 2. Featured Posters (Grab first 4)
+          const posterGrid = document.getElementById("featured-poster-grid");
+          const featuredPosters = data.posters.slice(0, 4);
 
-      posterGrid.innerHTML = featuredPosters.map((p, idx) => `
+          posterGrid.innerHTML = featuredPosters
+            .map(
+              (p, idx) => `
         <div class="poster-item" onclick="openPosterLightbox(${idx})">
-          <div class="poster-fill" style="background: ${p.colorConfig?.bg || '#141414'}; color: ${p.colorConfig?.color || '#888'};">
-            ${p.imagePath ? `<img src="${portfolio.getThumbnailPath(p.imagePath)}" alt="${p.title}" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">` : `
+          <div class="poster-fill" style="background: ${p.colorConfig?.bg || "#141414"}; color: ${p.colorConfig?.color || "#888"};">
+            ${
+              p.imagePath
+                ? `<img src="${portfolio.getThumbnailPath(p.imagePath)}" alt="${p.title}" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover; display:block;">`
+                : `
               <div class="poster-lines">
                 <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
                 <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
                 <div class="h-line"></div><div class="h-line"></div>
               </div>
               <div class="poster-inner">
-                <div class="poster-band">${p.band.replace(' ', '<br>')}</div>
+                <div class="poster-band">${p.band.replace(" ", "<br>")}</div>
                 <div class="poster-venue">${p.venue}</div>
                 <div class="poster-date">${p.date}</div>
               </div>
-            `}
+            `
+            }
           </div>
         </div>
-      `).join('');
+      `,
+            )
+            .join("");
 
-      window.openPosterLightbox = (idx) => {
-        const group = featuredPosters.filter(p => p.imagePath).map(p => ({ src: portfolio.getOptimizedPath(p.imagePath), title: `${p.title} · ${p.venue}` }));
-        const clickedPoster = featuredPosters[idx];
-        const actualIdx = group.findIndex(img => img.src === portfolio.getOptimizedPath(clickedPoster.imagePath));
-        if (actualIdx !== -1) Lightbox.show(actualIdx, group);
-      };
-    }
-  }
+          window.openPosterLightbox = (idx) => {
+            const group = featuredPosters
+              .filter((p) => p.imagePath)
+              .map((p) => ({
+                src: portfolio.getOptimizedPath(p.imagePath),
+                title: `${p.title} · ${p.venue}`,
+              }));
+            const clickedPoster = featuredPosters[idx];
+            const actualIdx = group.findIndex(
+              (img) =>
+                img.src === portfolio.getOptimizedPath(clickedPoster.imagePath),
+            );
+            if (actualIdx !== -1) Lightbox.show(actualIdx, group);
+          };
+        }
+      }
 
-  initHome();
-</script>
-</body>
+      initHome();
+    </script>
+  </body>
 </html>

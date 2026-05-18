@@ -17,13 +17,18 @@ def optimize_image(filename):
     input_path = os.path.join(MEDIA_DIR, filename)
     base_name = os.path.splitext(filename)[0]
     
-    # Optimized JPG
-    opt_path = os.path.join(OPTIMIZED_DIR, filename)
+    # Optimized JPG-like (preserving input name if it was jpg, or using .jpg for png)
+    if filename.lower().endswith('.png'):
+        opt_filename = f"{base_name}.jpg"
+    else:
+        opt_filename = filename
+        
+    opt_path = os.path.join(OPTIMIZED_DIR, opt_filename)
     # Optimized WebP
     webp_path = os.path.join(OPTIMIZED_DIR, f"{base_name}.webp")
     
-    # Thumb JPG
-    thumb_path = os.path.join(THUMBNAILS_DIR, filename)
+    # Thumb JPG-like
+    thumb_path = os.path.join(THUMBNAILS_DIR, opt_filename)
     # Thumb WebP
     thumb_webp_path = os.path.join(THUMBNAILS_DIR, f"{base_name}.webp")
 
@@ -34,7 +39,11 @@ def optimize_image(filename):
     ]:
         if not os.path.exists(out_path) or os.path.getmtime(input_path) > os.path.getmtime(out_path):
             print(f"Optimizing for display ({format_name}): {filename}")
-            cmd = ['magick', input_path, '-resize', DISPLAY_SIZE, '-quality', quality, '-strip', out_path]
+            # If PNG, flatten against black background before converting to JPG
+            if filename.lower().endswith('.png') and format_name == 'jpg':
+                cmd = ['magick', input_path, '-background', 'black', '-flatten', '-resize', DISPLAY_SIZE, '-quality', quality, '-strip', out_path]
+            else:
+                cmd = ['magick', input_path, '-resize', DISPLAY_SIZE, '-quality', quality, '-strip', out_path]
             subprocess.run(cmd)
 
     # Convert to thumbnail versions
@@ -44,15 +53,18 @@ def optimize_image(filename):
     ]:
         if not os.path.exists(out_path) or os.path.getmtime(input_path) > os.path.getmtime(out_path):
             print(f"Generating thumbnail ({format_name}): {filename}")
-            cmd = ['magick', input_path, '-resize', THUMB_SIZE, '-quality', quality, '-strip', out_path]
+            if filename.lower().endswith('.png') and format_name == 'jpg':
+                cmd = ['magick', input_path, '-background', 'black', '-flatten', '-resize', THUMB_SIZE, '-quality', quality, '-strip', out_path]
+            else:
+                cmd = ['magick', input_path, '-resize', THUMB_SIZE, '-quality', quality, '-strip', out_path]
             subprocess.run(cmd)
 
 def main():
     if not os.path.exists(OPTIMIZED_DIR): os.makedirs(OPTIMIZED_DIR)
     if not os.path.exists(THUMBNAILS_DIR): os.makedirs(THUMBNAILS_DIR)
 
-    # Get all jpg files in media/
-    images = [f for f in os.listdir(MEDIA_DIR) if f.lower().endswith(('.jpg', '.jpeg')) and os.path.isfile(os.path.join(MEDIA_DIR, f))]
+    # Get all jpg/png files in media/
+    images = [f for f in os.listdir(MEDIA_DIR) if f.lower().endswith(('.jpg', '.jpeg', '.png')) and os.path.isfile(os.path.join(MEDIA_DIR, f))]
     
     total = len(images)
     print(f"Found {total} images to process.")

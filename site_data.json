@@ -340,18 +340,18 @@
   "posters": [
     {
       "id": "poster-01",
-      "title": "Dreamwave",
-      "band": "Dreamwave",
-      "venue": "The Jam Factory",
-      "date": "Update with your date",
+      "title": "Bristol Takeover, Night One",
+      "band": "Versaints / Burden of Truth / Moxie Dolls",
+      "venue": "The Louisiana",
+      "date": "July 15th",
       "format": "A2 Print / Digital",
-      "description": "[Update this with your own description of the Dreamwave poster — what inspired the design, the brief you were given, any interesting details about the typography or layout choices, and what made this gig special.]",
+      "description": "The first of three nights of the Bristol Takeover event: organised by Medicated Promotions, a chance for Hereford bands to play in big city stages in Brisol.",
       "tags": [
         "Typography-led",
         "Purple palette",
         "Print-ready"
       ],
-      "imagePath": null,
+      "imagePath": "media/versaints_poster.jpg",
       "colorConfig": {
         "bg": "#1a1028",
         "color": "#AFA9EC"
@@ -359,18 +359,18 @@
     },
     {
       "id": "poster-02",
-      "title": "Yungold",
-      "band": "Yungold",
-      "venue": "The Jam Factory",
-      "date": "Update with your date",
+      "title": "Bristol Takeover, Night Two",
+      "band": "Trashed / Enabling Behaviour / YUNGOLD",
+      "venue": "The Fleece",
+      "date": "July 16th",
       "format": "A2 Print / Digital",
-      "description": "[Update this with your own description of the Yungold poster — what inspired the warm amber tones, the mood you were going for, and any details about how you captured the energy of the band in the design.]",
+      "description": "The second of three nights of the Bristol Takeover event: organised by Medicated Promotions, a chance for Hereford bands to play in big city stages in Brisol.",
       "tags": [
         "Warm palette",
         "Bold type",
         "Print-ready"
       ],
-      "imagePath": null,
+      "imagePath": "media/trashed_poster.jpg",
       "colorConfig": {
         "bg": "#1a1408",
         "color": "#EF9F27"
@@ -378,18 +378,18 @@
     },
     {
       "id": "poster-03",
-      "title": "Pollyanna Blue",
+      "title": "Bristol Takeove, Night Three",
       "band": "Pollyanna Blue",
-      "venue": "The Jam Factory",
-      "date": "Update with your date",
+      "venue": "The Jam Jar",
+      "date": "July 17th",
       "format": "A2 Print / Digital",
-      "description": "[Update this with your own description of the Pollyanna Blue poster — the cool blue palette, the mood of the night, the brief from the band or promoter, and anything else that makes this piece stand out in your portfolio.]",
+      "description": "The third of three nights of the Bristol Takeover event: organised by Medicated Promotions, a chance for Hereford bands to play in big city stages in Brisol.",
       "tags": [
         "Cool palette",
         "Minimalist",
         "Print-ready"
       ],
-      "imagePath": null,
+      "imagePath": "media/bozos_poster.jpg",
       "colorConfig": {
         "bg": "#071220",
         "color": "#85B7EB"
@@ -397,21 +397,66 @@
     },
     {
       "id": "poster-04",
-      "title": "Dead On Arrival",
-      "band": "Dead On Arrival",
-      "venue": "The Jam Factory",
-      "date": "Update with your date",
+      "title": "Bristol Takeover, Sign Up Now!",
+      "band": "",
+      "venue": "Bristol",
+      "date": "July 14th-18th",
       "format": "A2 Print / Digital",
-      "description": "[Update this with your own description of the Dead On Arrival poster — the raw red palette, what the brief was, how you captured the intensity of the band's sound in the visual design, and anything that made this commission memorable.]",
+      "description": "This was the initial promotional material for the Bristol Takeover event, designed to catch peoples eye and get bands to sign up.",
       "tags": [
         "High contrast",
         "Raw energy",
         "Print-ready"
       ],
-      "imagePath": null,
+      "imagePath": "media/bristol_takeover.jpg",
       "colorConfig": {
         "bg": "#1a0a0a",
         "color": "#F09595"
+      }
+    },
+    {
+      "id": "poster-1779071461211-541",
+      "title": "Bristol Takeover, The Lineup",
+      "band": "",
+      "venue": "",
+      "date": "July 15th - 17th",
+      "format": "A2 Print / Digital",
+      "description": "An overview poster for the Bristol Takeover, showcasing all the bands and venues involved.",
+      "tags": [],
+      "imagePath": "media/Artboard3.jpg",
+      "colorConfig": {
+        "bg": "#141414",
+        "color": "#888888"
+      }
+    },
+    {
+      "id": "poster-1779071464283-86",
+      "title": "",
+      "band": "Ephemeral / AVA / Woke Mind Virus",
+      "venue": "The Jam Factory",
+      "date": "May 10th",
+      "format": "A2 Print / Digital",
+      "description": "Another local gig this time, for some smaller bands. This event was also organised by Medicated Promotions.",
+      "tags": [],
+      "imagePath": "media/jam_10.05.26.jpg",
+      "colorConfig": {
+        "bg": "#141414",
+        "color": "#888888"
+      }
+    },
+    {
+      "id": "poster-1779071466483-991",
+      "title": "",
+      "band": "Grey FLX / Brad Hunter and The After Party",
+      "venue": "The Jam Factory",
+      "date": "April 12th",
+      "format": "A2 Print / Digital",
+      "description": "This was my first official poster, so has a special place in my heart. A local gig this time - definitely a heavier one too -  for some varied bands. This event was also organised by Medicated Promotions.",
+      "tags": [],
+      "imagePath": "media/april_poster.jpg",
+      "colorConfig": {
+        "bg": "#141414",
+        "color": "#888888"
       }
     }
   ]

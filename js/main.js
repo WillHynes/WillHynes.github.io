@@ -41,13 +41,19 @@ webpCheck.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIA
 function getOptimizedPath(src) {
   if (!src) return '';
   const path = src.replace('media/', 'media/optimized/');
-  return supportsWebP ? path.replace(/\.(jpg|jpeg)$/i, '.webp') : path;
+  if (supportsWebP) {
+    return path.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  }
+  return path.replace(/\.png$/i, '.jpg');
 }
 
 function getThumbnailPath(src) {
   if (!src) return '';
   const path = src.replace('media/', 'media/thumbnails/');
-  return supportsWebP ? path.replace(/\.(jpg|jpeg)$/i, '.webp') : path;
+  if (supportsWebP) {
+    return path.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  }
+  return path.replace(/\.png$/i, '.jpg');
 }
 
 // Global export
